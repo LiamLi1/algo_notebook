@@ -58,6 +58,8 @@ DFS to traverse routes, it is only a valid next node if the distance of node is 
 
 ##### 5. 最小支撑树
 UnionFind + PriorityQueue来做。
+- [x](https://www.lintcode.com/problem/minimum-risk-path/description)
+https://blog.csdn.net/luoshixian099/article/details/51908175
 
 ##### 6. 两点间最短距离（有权图）
 

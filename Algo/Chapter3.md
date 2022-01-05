@@ -117,7 +117,7 @@ while 队列循环 + for循环。见Problem 中 BFS，  Binary Tree Level Order 
 
 /*
 * Quick Select/ 
-* （1）
+* （1）至少需要一次交换（利用两边都==pivot的情况）来保证迭代的参数发生变化，避免死循环
 * （2）全部都加等号。然后用一个if来判断是否交换。
 */
 private void quickSort(int[] A, int start, int end) {

@@ -216,25 +216,25 @@ void insertSort(int[] A) {
 ### Problems 
 
 - Binary Tree
-- [x] [Binary Tree Preorder Traversal (recursion/ divide & conquer/ no recursion)](https://www.lintcode.com/problem/binary-tree-preorder-traversal/description)
-- [ ] :carrot: inorder by loop
+- [x] [Binary Tree Preorder Traversal (recursion/ divide & conquer/ no recursion)](https://www.leetcode.com/problems/binary-tree-preorder-traversal/description)
+- [x] :carrot: inorder by loop
 - [x] :carrot: postorder by loop
-- [ ] :carrot: Morris inorder
-- [x] [Binary Tree Inorder/Preorder/Postorder Traversal (while loop)](https://www.lintcode.com/problem/binary-tree-inorder-traversal/description)
+- [x] :carrot: Morris inorder
+- [x] [Binary Tree Inorder/Preorder/Postorder Traversal (while loop)](https://www.leetcode.com/problems/binary-tree-inorder-traversal/description)
 - divide & conquer （两种传值方式。这里主要是子节点传给父节点。而BST的第一题就用了父节点的传给子节点）
-- [x]  [Maximum Depth of Binary Tree](https://lintcode.com/problem/maximum-depth-of-binary-tree/)
-- [ ]  [Balanced Binary Tree](https://www.lintcode.com/problem/balanced-binary-tree/)
-- [x] [*Binary Tree Maximum Path Sum](https://www.lintcode.com/problem/binary-tree-maximum-path-sum/description) (对非法情况，求最大返回最小，求最小返回最大，求方案数返回0)
-- [x] [*Lowest Common Ancestor (包含parent指针 用List，或者不包含 用分治)](https://www.lintcode.com/problem/lowest-common-ancestor-of-a-binary-tree/description/)
+- [x]  [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+- [x]  [Balanced Binary Tree](https://www.leetcode.com/problems/balanced-binary-tree/)
+- [x] [###Binary Tree Maximum Path Sum###](https://www.leetcode.com/problems/binary-tree-maximum-path-sum/description) (对非法情况，求最大返回最小，求最小返回最大，求方案数返回0)
+- [x] [*Lowest Common Ancestor (包含parent指针 用List，或者不包含 用分治)](https://www.leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/)
 
-- Sort
-- [x] [Partition Array](https://www.lintcode.com/problem/partition-array/description)
+### Sort
+- [ ] [Partition Array](https://www.leetcode.com/problems/partition-array/description)
 
-- BFS
-- [x] [Binary Tree Level Order Traversal](http://www.lintcode.com/problem/binary-tree-level-order-traversal/)
+### BFS
+- [ ] [Binary Tree Level Order Traversal](http://www.lintcode.com/problem/binary-tree-level-order-traversal/)
 - Binary Search Tree
-- [x] [Validate Binary Search Tree](http://www.lintcode.com/problem/validate-binary-search-tree/) 这用前序遍历的思路，把父节点的参数传给子节点。然后再把子节点的结果来分治。写起来更简洁。可以当作另一种思路的模板。
-- [x] :carrot: 还有一个性质是，后序遍历时得到最小值排序。 
+- [ ] [Validate Binary Search Tree](http://www.lintcode.com/problem/validate-binary-search-tree/) 这用前序遍历的思路，把父节点的参数传给子节点。然后再把子节点的结果来分治。写起来更简洁。可以当作另一种思路的模板。
+- [ ] :carrot: 还有一个性质是，后序遍历时得到最小值排序。 
 
 ```java
 public class Solution {
@@ -259,17 +259,17 @@ public class Solution {
     }
 }
 ```
-- [x] [Insert Node in a Binary Search Tree](https://www.lintcode.com/problem/insert-node-in-a-binary-search-tree/description) 单独写函数的方法失败了。因为TreeNode没有提供改变自身的赋值。分治法的传值方式，可以把底层的结果慢慢传到最上层。用 root.left = // root.right = // return root. 也是分治法。但是和模板的后序遍历分治法不一样。
-- [x] [Search Range in a Binary Search Tree](http://www.lintcode.com/problem/search-range-in-binary-search-tree/)
-- [x] :memo: [*Remove Node in Binary Search Tree](http://www.lintcode.com/problem/remove-node-in-binary-search-tree/)第一道hard难度的题。和 Insert 一样，通过分治返回TreeNode的方式来改变BST的结构。  而且也是前序的思路完成的分治。
-- [x] [*Binary Search Tree Iterator](https://www.lintcode.com/problem/binary-search-tree-iterator/description) 
+- [ ] [Insert Node in a Binary Search Tree](https://www.lintcode.com/problem/insert-node-in-a-binary-search-tree/description) 单独写函数的方法失败了。因为TreeNode没有提供改变自身的赋值。分治法的传值方式，可以把底层的结果慢慢传到最上层。用 root.left = // root.right = // return root. 也是分治法。但是和模板的后序遍历分治法不一样。
+- [ ] [Search Range in a Binary Search Tree](http://www.lintcode.com/problem/search-range-in-binary-search-tree/)
+- [ ] :memo: [*Remove Node in Binary Search Tree](http://www.lintcode.com/problem/remove-node-in-binary-search-tree/)第一道hard难度的题。和 Insert 一样，通过分治返回TreeNode的方式来改变BST的结构。  而且也是前序的思路完成的分治。
+- [ ] [*Binary Search Tree Iterator](https://www.lintcode.com/problem/binary-search-tree-iterator/description) 
 
 
 ---
 
 ## 二刷
 
-- [x] [inorder-predecessor-in-bst](https://www.lintcode.com/problem/inorder-predecessor-in-bst/description)
+- [ ] [inorder-predecessor-in-bst](https://www.lintcode.com/problem/inorder-predecessor-in-bst/description)
 一般的找前驱/后驱，用while+stack容易能看清楚访问的逻辑。
 BST找，并且一定存在这个点，那么问题就转换成找最后一个比p.val小的点。可以直接递归搜索。
 BST的前序搜索可以用while来模拟。因为每次只走一边，if以后的所搜某一边换成root = root.left/root.right 就可以了。

@@ -38,7 +38,7 @@ public int BinarySearch(int A[], int target){
 - [x] [find peak element](https://www.lintcode.com/problem/find-peak-element/) O(n) -> O(logn)  80% binary search
 
 
-- [x] [search-in-rotated-sorted-array](https://www.lintcode.com/problem/search-in-rotated-sorted-array/description) :memo: 通过mid是否大于start，再进一步二分。
+- [ ] [search-in-rotated-sorted-array](https://www.leetcode.com/problems/search-in-rotated-sorted-array/description) :memo: 通过mid是否大于start，再进一步二分。
 - [x] [search-in-rotated-sorted-array-ii](https://www.lintcode.com/problem/search-in-rotated-sorted-array-ii/description) (prove can only be in O(n))
 - [x] [find minimum in rotated sorted array](https://www.lintcode.com/problem/find-minimum-in-rotated-sorted-array/description)
 - [x] [merge sorted array](https://www.lintcode.com/problem/merge-sorted-array/description)

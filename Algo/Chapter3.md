@@ -152,10 +152,10 @@ private void quickSort(int[] A, int start, int end) {
 ```
 
 ### 4. Merge Sort
-- [ ] [Sort LinkedList](https://www.lintcode.com/problem/sort-integers-ii/description)
-- [ ] [Merge Sort来写数组排序](https://www.lintcode.com/problem/sort-integers-ii/description)
+- [x] [Sort LinkedList](https://www.lintcode.com/problem/sort-integers-ii/description)
+- [x] [Merge Sort来写数组排序](https://www.lintcode.com/problem/sort-integers-ii/description)
 ### 5. Heap Sort
-- [ ] [Heap Sort写数组排序](https://www.lintcode.com/problem/sort-integers-ii/description)
+- [x] [Heap Sort写数组排序](https://www.lintcode.com/problem/sort-integers-ii/description)
 ### 6. 排序总结
 桶排序：先划分成若干个桶(比如用map，0-9/10-19/.../)， 桶内排序以后再合并。
 稳定的排序: 

@@ -56,6 +56,9 @@ l1.extend(l2)
 l1.extend(l2)
 
 3. 其他
+list = [0] * 10 初始化数组（[0,0,0,0,0,0,0,0,0,0])
+list = [[0]*3 for i in range(3)] (2纬开始不要用*)
+
 list.append(obj) 在列表末尾添加新的对象
 list.count(obj) 统计某个元素在列表中出现的次数
 list.extend(seq) 在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）
@@ -68,6 +71,27 @@ list.reverse() 反向列表中元素
 list.sort(cmp=None, key=None, reverse=False) 对原列表进行排序
 
 
+```
+
+#### dict
+python 记忆化搜索可以用dict代替list用作memo
+eg：
+```python
+class Solution:
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        if triangle == None or triangle[0] == None:
+            return 0
+        self.memo = {}
+        self.helper(triangle, 0, 0)
+        return self.memo[(0, 0)]
+        
+    def helper(self, triangle, i, j):
+        if i >= len(triangle):
+            return 0
+        if (i, j) in self.memo:
+            return self.memo[(i, j)]
+        self.memo[(i, j)] = min(self.helper(triangle, i + 1, j), self.helper(triangle, i + 1, j + 1)) + triangle[i][j]
+        return self.memo[(i, j)]
 ```
 
 #### heap

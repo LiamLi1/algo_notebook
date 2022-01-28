@@ -9,7 +9,7 @@
 2. 循环
 
 
-[Triangle](https://www.lintcode.com/problem/triangle/description) 五种解法 :carrot:
+[Triangle](https://www.leetcode.com/problems/triangle/description) 五种解法 :carrot:
 - [x] DFS
 - [x] D&C
 - [x] 记忆化搜索
@@ -55,15 +55,15 @@ function: 研究走到x,y这个点之前的一步
 intialize: 起点
 answer: 终点
 1. path 类
-- [x] [Minimum Path Sum](https://www.lintcode.com/problem/minimum-path-sum/description)
+- [x] [Minimum Path Sum](https://www.leetcode.com/problems/minimum-path-sum/description)
 二维数组动态规划：初始化第一行和第一列
-- [x] [Unique Paths](https://www.lintcode.com/problem/unique-paths)
-- [x] [Unique Paths ii](https://www.lintcode.com/problem/unique-paths-ii)
-- [ ] [Unique Paths iv](https://www.lintcode.com/problem/unique-path-iv/description)
+- [x] [Unique Paths](https://www.leetcode.com/problems/unique-paths)
+- [x] [Unique Paths ii](https://www.leetcode.com/problems/unique-paths-ii)
+- [x] [Unique Paths iv](https://www.lintcode.com/problem/unique-path-iv/description)
 取模放溢出时。对任何两个数相加可能溢出的情况，都需要取模。
 
 2. square/rectangle 求最大面积。求最大frame等。记录每个点左边/上面有多少连续的1. 
-- [ ] [maximal-square](https://www.lintcode.com/problem/maximal-square/description) 
+- [x] [maximal-square](https://www.leetcode.com/problems/maximal-square/description) 
 
 
 #### 2. Sequence Dp
@@ -73,17 +73,31 @@ intialize: f[0]..
 answer: f[n-1]..
 
 类型1：爬楼梯
-- [x] [Climbing Stairs](https://www.lintcode.com/problem/climbing-stairs)
-- [ ] [house-robber](https://www.lintcode.com/problem/house-robber/description)
+- [x] [Climbing Stairs](https://www.leetcode.com/problems/climbing-stairs)
+- [x] [house-robber](https://www.leetcode.com/problems/house-robber/description)
 只用一个dp数组就可以。其实是local和global化简得来的。
 
 * 还是爬楼梯，但是是循环数组的类型
-- [ ] [house-robber-ii](https://www.lintcode.com/problem/house-robber-ii/description)
+- [x] [house-robber-ii](https://www.leetcode.com/problems/house-robber-ii/description)
 从(0,n-1) ,(1-n)两个里面选。 
 
 
 类型2：对下一个f[n], 需要遍历前面的f[n - 1]。
-- [x] [Jump Game](https://www.lintcode.com/problem/jump-game) (可以用贪心做Greedy)
-- [x] [Jump Game ii](https://www.lintcode.com/problem/jump-game-ii) (也可以用贪心做Greedy) 求最小值，但是有些情况没有解。求最小用无穷大。或者自定义一个数据结构来定义。
-- [ ] [Palindrome Partitioning ii](https://www.lintcode.com/problem/palindrome-partitioning-ii/description) 用两次sequence dp
-- [ ] [Word Break](https://www.lintcode.com/problem/word-break)
+- [x] [Jump Game](https://www.leetcode.com/problems/jump-game) (可以用贪心做Greedy)
+
+```python
+#dp 
+for j in range(i - 1, -1, -1):
+	if can[j] and can[j] + nums[j] > i:
+		can[i] = true
+		break
+#greedy
+fartest = nums[0]
+for i in range(0, n):
+	if i < fartest:
+		fartest = max(nums[i] + i, fartest)
+```
+
+- [x] [Jump Game ii](https://www.leetcode.com/problems/jump-game-ii) (也可以用贪心做Greedy) 求最小值，但是有些情况没有解。求最小用无穷大。或者自定义一个数据结构。
+- [x] [Palindrome Partitioning ii](https://www.leetcode.com/problems/palindrome-partitioning-ii/description) 也可以用dfs
+- [x] [Word Break](https://www.leetcode.com/problems/word-break)

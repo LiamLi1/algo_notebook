@@ -2,7 +2,7 @@
 
 ### Dynamic Programming II
 subarray的题在senior7中有单独讨论。一般不是dp，有可能是线段树或者map/subsum等记录中间状态。比如下面这道题，就是用min_subsum 和 subsum来做成O(n)。
-- [x] [Maximum Subarray](http://www.lintcode.com/problem/maximum-subarray)
+- [x] [Maximum Subarray](http://www.leetcode.com/problems/maximum-subarray)
 
 
 #### 3. Two Sequences DP
@@ -12,29 +12,27 @@ function: f[i][j] = 研究第i个和第j个的匹配关系
 intialize: f[i][0] 和 f[0][i]
 answer: f[s1.length()][s2.length()]
 
-- [x] [Longest Common Subsequence](http://www.lintcode.com/problem/longest-common-subsequence) (Array (Substring)是连续的。Sequence则不是)
+- [x] [Longest Common Subsequence](http://www.leetcode.com/problems/longest-common-subsequence) (Array (Substring)是连续的。Sequence则不是)
 - [x] [Longest Common Substring](http://www.lintcode.com/problem/longest-common-substring) 
-- [ ] [Edit Distance](http://www.lintcode.com/problem/edit-distance) f[i][j]表示第一个字符串的前i个字符，配上第二个字符串的前j个字符的edit distance最小是多少。
+- [x] [Edit Distance](http://www.leetcode.com/problems/edit-distance) f[i][j]表示第一个字符串的前i个字符，配上第二个字符串的前j个字符的edit distance最小是多少。
 EditDistance(A,B) = MAXLEN(A,B) - LCS(A,B)
-- [ ] [Distinct Subsequences](http://www.lintcode.com/problem/distinct-subsequences) 
-![84a5beb1.png](:storage\158aadcb-cb0e-4ce7-828d-348aa5f87f2a\84a5beb1.png) 
-草稿如图
+- [x] [Distinct Subsequences](http://www.leetcode.com/problems/distinct-subsequences) 
+
 滚动数组，二维情况也可以像一维一样用。但是如果和当前行有关，则必须每次开始前都初始化。
 
 NO 不能用记忆化搜索。和reg expression 不一样，不是之和后面的一步有关。
 
+- [x] [interleaving-string](http://www.leetcode.com/problems/interleaving-string) 
+- [x] 记忆化搜索/ dp 都做一次
 
-- [ ] [interleaving-string](http://www.lintcode.com/problem/interleaving-string) 
+
+- [x] [Wildcard Matching](http://www.leetcode.com/problems/wildcard-matching) 
 - [x] :carrot: 记忆化搜索/ dp 都做一次
-
-
-- [x] [Wildcard Matching](http://www.lintcode.com/problem/wildcard-matching) 
-- [x] :carrot: 记忆化搜索/ dp 都做一次
-- [x] [regular-expression-matching](https://www.lintcode.com/problem/regular-expression-matching/description) 
+- [x] [regular-expression-matching](https://www.leetcode.com/problems/regular-expression-matching/description) 
 用dfs + 记忆华搜索解决更容易。因为不确定*的情况要往回走几步。注意在dfs里只能往前，不能回头。
 
 总结：
-1. 如果只和后面的某一步有关，可以用记忆化搜索。如果只和前面的某一步有关，可以之间动归。
+1. 如果只和后面一步有关，可以用记忆化搜索。如果只和前面的一步有关，可以动归。
 2. 记忆化搜索不用初始化。其实就是dfs递归，把结束条件写在前面，避免数组超出范围。
  
 #### 4. Backpack
@@ -45,15 +43,10 @@ answer: 能够使得f[n][X]最大的X （0 <= X <= m)
 
 
 - [x] [*Backpack](http://www.lintcode.com/problem/backpack) 考虑如何省空间（取模做成滚动数组）
-![ddd34434.png](:storage\158aadcb-cb0e-4ce7-828d-348aa5f87f2a\ddd34434.png)
 - [x] [*Backpack II](http://www.lintcode.com/problem/backpack-ii) 
-![acc0700e.png](:storage\158aadcb-cb0e-4ce7-828d-348aa5f87f2a\acc0700e.png)
+- [x] 背包求具体方案（回溯）
 - [x] [k-sum](http://www.lintcode.com/problem/k-sum/)
-![6405ccaf.png](:storage\158aadcb-cb0e-4ce7-828d-348aa5f87f2a\6405ccaf.png)
 - [x] [Minimum Adjustment Cost](http://www.lintcode.com/problem/minimum-adjustment-cost/) 
-- [x] :carrot:
-dp[i][j]`表示第i的数变成j的最小调整代价
-- [ ] 思考题：求所有方案，可以看有没有取某个值，然后倒推？
 
 #### Conclusion
 
@@ -63,7 +56,7 @@ dp[i][j]`表示第i的数变成j的最小调整代价
 
 
 #### 补充题：
-- [x] [the game of take numbers](https://www.lintcode.com/problem/the-game-of-take-numbers/description) i 表示长度， j表示start point, f[i][j] 表示A最大能取得的优势
+- [x] [the game of take numbers](https://leetcode.com/problems/predict-the-winner/) i 表示长度， j表示start point, f[i][j] 表示A最大能取得的优势
 - [ ] 把空间优化到一维
 
 ---
@@ -71,7 +64,7 @@ dp[i][j]`表示第i的数变成j的最小调整代价
 senior 中还有6种题型的总结
 
 
-- [x] [scramble-string](https://www.lintcode.com/problem/scramble-string/description)
+- [ ] [scramble-string](https://www.lintcode.com/problem/scramble-string/description)
 除了dp，还可以用记忆化搜索/dfs等方法来做。
 所搜的难点在于判定scramble的方式。怎么记忆。
 简单粗暴的方法，直接存一个Map<String, boolean>
@@ -80,13 +73,13 @@ dp的难点是想状态。
 f[i][j][k], s1的i开始，s2的j开始，长度为k。
 
 
-- [x] [burst-balloons](https://www.lintcode.com/problem/burst-balloons/description)
+- [ ] [burst-balloons](https://www.lintcode.com/problem/burst-balloons/description)
 dp的状态表示。dp[i][j] 表示只剩下i,j, i + 1 ~ j - 1都爆掉的时候，能得到的最大值。
 所以dp[i][i] = 0. dp[i][i + 1] = 0. 只有三个以上的情况才有值。在原数组前后都加一个1， 然后再来dp。不太好想到这一层。
 
 dp[i][j]的这个状态，和上题一样，既可以当作dp的状态，又可以当作dfs的memo。本质上两个是一样的。dfs是从大到小，dp则是从小（不会再往回的状态）到大。
 
-- [x] [largest-sum-of-averages](https://www.lintcode.com/problem/largest-sum-of-averages/description)
+- [ ] [largest-sum-of-averages](https://www.lintcode.com/problem/largest-sum-of-averages/description)
 ```java
 //区间划分形的模板
 
@@ -122,9 +115,9 @@ class Solution {
 
 - [ ] [dyeing-problem](https://www.lintcode.com/problem/dyeing-problem/description) 1. cycle数组。2.乘法容易越界。本身是到非常规dp，考数学。
 
-- [x] [Longest Increasing Subsequence](https://www.lintcode.com/problem/longest-increasing-subsequence) 从中间往两边扩展
+- [ ] [Longest Increasing Subsequence](https://www.lintcode.com/problem/longest-increasing-subsequence) 从中间往两边扩展
 
-- [x] [maximum-product-subarray](https://www.lintcode.com/problem/maximum-product-subarray/description)
+- [ ] [maximum-product-subarray](https://www.lintcode.com/problem/maximum-product-subarray/description)
 
 
 

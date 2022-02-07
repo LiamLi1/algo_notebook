@@ -3,7 +3,7 @@
 ### Linked List
 mitbbs /careercup /glassdoor
 
-- [x] [remove-duplicates-from-sorted-list](http://www.lintcode.com/problem/remove-duplicates-from-sorted-list)
+- [ ] [remove-duplicates-from-sorted-list](http://www.leetcode.com/problems/remove-duplicates-from-sorted-list)
 
 ##### 1. 查找
 	1. head != null / head.next != null

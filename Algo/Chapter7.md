@@ -3,11 +3,11 @@
 Graph & Search
 ![d197ae23.png](:storage\f8f56076-8b9c-4d70-81dd-e5c4356c2ba5\e4cb0fb8.png)
 ##### 1. Clone Graph
- - [x] [clone-graph](https://www.lintcode.com/problem/clone-graph/description)
+ - [ ] [clone-graph](https://www.leetcode.com/problems/clone-graph/description)
  
  克隆点和克隆边分开
  遍历图：用BFS比DFS好。
- - [x] [copy-list-with-random-pointer](https://www.lintcode.com/problem/copy-list-with-random-pointer/) 
+ - [ ] [copy-list-with-random-pointer](https://www.leetcode.com/problems/copy-list-with-random-pointer/) 
 
 ##### 2. 拓扑排序 
 入度/出度 有多少边可以入/出

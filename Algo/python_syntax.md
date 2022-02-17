@@ -2,7 +2,7 @@
 
 ### 常用函数
 
-#### List
+### List
 
 1. sort（原数组上改）/sorted（返回一个copy）
    
@@ -65,7 +65,7 @@ list.extend(seq) 在列表末尾一次性追加另一个序列中的多个值（
 list.index(obj) 从列表中找出某个值第一个匹配项的索引位置
 
 list.insert(index, obj) 将对象插入列表
-list.pop([index=-1]) 移除列表中的一个元素（默认最后一个元素），并且返回该元素的值
+list.pop(index=-1) 移除列表中的一个元素（默认最后一个元素），并且返回该元素的值
 list.remove(obj) 移除列表中某个值的第一个匹配项
 list.reverse() 反向列表中元素
 list.sort(cmp=None, key=None, reverse=False) 对原列表进行排序
@@ -73,7 +73,7 @@ list.sort(cmp=None, key=None, reverse=False) 对原列表进行排序
 
 ```
 
-#### dict
+## dict
 python 记忆化搜索可以用dict代替list用作memo
 eg：
 ```python
@@ -93,25 +93,119 @@ class Solution:
         self.memo[(i, j)] = min(self.helper(triangle, i + 1, j), self.helper(triangle, i + 1, j + 1)) + triangle[i][j]
         return self.memo[(i, j)]
 ```
+collections.defaultlist(list)
+对没有定义key的，直接返回一个空list
+```
+>>> def zero():
+...     return 0
+...
+>>> dd = defaultdict(zero)
+dict1 = defaultdict(int)
+dict2 = defaultdict(set)
+dict3 = defaultdict(str)
+dict4 = defaultdict(list)
+```
 
-#### heap
+hash 需要定义__hash__和__eq__
+```
+class MemDev(object):
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+ 
+    def __hash__(self):
+        return hash(self.name + str(self.age))
+ 
+    def __eq__(self, other):
+        if self.name == other.name and self.age == other.age:
+            return True
+        return False
+``` 
+
+
+## stack
+```
+python的内置数据结构list可以用来实现栈，用append()向栈顶添加元素, pop() 可以以后进先出的顺序删除元素
+
+但是列表本身有一些缺点，主要问题就是当列表不断扩大的时候会遇到速度瓶颈．列表是动态数组，因此往其中添加新元素而没有空间保存新的元素时，它会自动重新分配内存块，并将原来的内存中的值复制到新的内存块中．这就导致了一些append()操作会消耗更多的时间
+```
+```python
+from collections import deque     
+# Declaring deque
+queue = deque(['name','age','DOB']) 
+
+append():- This function is used to insert the value in its argument to the right end of the deque.
+
+appendleft():- This function is used to insert the value in its argument to the left end of the deque.
+
+pop():- This function is used to delete an argument from the right end of the deque.
+
+popleft():- This function is used to delete an argument from the left end of the deque. 
+
+extend(iterable):- This function is used to add multiple values at the right end of the deque. The argument passed is iterable.
+```
+
+
+
+## queue
+### deque 优先
+可以用双向队列deque
+```
+append/appendleft/extend/extendleft/pop/popleft/count(x)
+
+len
+```
+
+Queue 线程安全，所以速度满
+queue.Queue
+queue.PriorityQueue
+queue.LifoQueue
+```
+import queue
+
+#向队列中添加元素
+Queue.put(item[, block[, timeout]])
+#从队列中获取元素
+Queue.get([block[, timeout]])
+#队列判空
+Queue.empty()
+#队列大小
+Queue.qsize()
+```
+
+## heap
 heapq
 ```python
 heapq.heappush(heap, item) 
 
 heapq.heappop(heap) # 弹出并返回 heap 的最小的元素，保持堆的不变性。如果堆为空，抛出 IndexError 。使用 heap[0] ，可以只访问最小的元素而不弹出它。
 
-heapqpushpop(heap, item) # 将 item 放入堆中，然后弹出并返回 heap 的最小元素。该组合操作比先调用  heappush() 再调用 heappop() 运行起来更有效率。
+heapq.pushpop(heap, item) # 将 item 放入堆中，然后弹出并返回 heap 的最小元素。该组合操作比先调用  heappush() 再调用 heappop() 运行起来更有效率。
 
-heapqreplace(heap, item) # 可能弹出的item比输入的小
+heapq.replace(heap, item) # 可能弹出的item比输入的小
 
 heapq.heapify(x) # 将list x 转换成堆，原地，线性时间内。
 ```
 
+对tuple，自动根据第一个数来排序
+```
+>>> h = []
+>>> heappush(h, (5, 'write code'))
+>>> heappush(h, (7, 'release product'))
+>>> heappush(h, (1, 'write spec'))
+>>> heappush(h, (3, 'create tests'))
+>>> heappop(h)
+(1, 'write spec')
+```
+
+
+
 只支持最小值堆。最大值堆需要把数值取负。
+```
+```
+
 heap自定义comparator通过给元素新增tuple，其中第一项是可以排序来实现。
 或者自定义一个class 重写__lt__(self, other).
-
 
 ```
 Define a class, in which override the __lt__() function. See example below (works in Python 3.7):

@@ -73,7 +73,8 @@ Dijkstra
 7.求所有顶点到所有定点的最短路径
 Floyd
 
-[sum-of-distances-in-tree](https://leetcode.com/problems/sum-of-distances-in-tree/submissions/) 可以用来联系。但是真的用Floyd要超时。
+- [x] [sum-of-distances-in-tree](https://leetcode.com/problems/sum-of-distances-in-tree/submissions/) 可以用来练习。但是真的用Floyd要超时。
+这里是树（树是一幅无环连通图）。可以用两次dfs来求解。
    
  Floyd-Warshall算法的时间复杂度為 ${ O(N^{3})}$，空间复杂度为 ${ O(N^{2})}$。 
  

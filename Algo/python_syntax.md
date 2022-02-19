@@ -230,3 +230,9 @@ heapq.heappop(heap)
 print(heap)  # output: [Node value: 1, Node value: 2, Node value: 2, Node value: 4]
 ```
 
+### 其他
+```
+for i,x in enumerate(equations):
+    # i: 0~len(equation)
+    # x: equation
+```

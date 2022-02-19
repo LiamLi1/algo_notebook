@@ -121,24 +121,24 @@ eg:
 meme[leftAmount][index]. 如果要求路径（212，221算两种），
 则需要把List cur转为key来记录memo。
 ```
-- [ ] [coin-change-2](https://www.lintcode.com/problem/coin-change-2/description)
-- [ ] [evaluate-division](https://www.lintcode.com/problem/evaluate-division/description) 
+- [x] [coin-change-2](https://www.leetcode.com/problems/coin-change-2/description)
+- [x] [evaluate-division](https://www.leetcode.com/problems/evaluate-division/description) 
+- [] union find
 
 ii. dfs求所有情况。经典的permutation/combination
 iii. 二维数组的dfs
-- [ ] [number-of-distinct-islands](https://www.lintcode.com/problem/number-of-distinct-islands/)
-- [ ] [number-of-big-islands](https://www.lintcode.com/problem/number-of-big-islands/description)
+- [x] [number-of-distinct-islands](https://www.leetcode.com/problems/number-of-distinct-islands/)
+- [x] [number-of-big-islands](https://www.lintcode.com/problem/number-of-big-islands/description)
 比起用union find， 应该优先考虑dfs+visited，更好写。
 
 bfs: 
 一般是求最短路径/最短距离等。利用bfs每次步数加一的性质，设置sentinel记录步数。
 可以双向bfs节省空间复杂度/ 可以多源bfs，找到中心点等。
 
-- [ ] [minesweeper](https://www.lintcode.com/problem/minesweeper/description)
-
-
-
+- [x] [minesweeper](https://www.leetcode.com/problems/minesweeper/description)
 带条件的dfs/bfs
 比如拓扑排序用dfs看是否可以进入。
 还有bfs看是否需要进入queue。
-- [ ] [shortest-path-visiting-all-nodes](https://www.lintcode.com/problem/shortest-path-visiting-all-nodes/description)
+
+- [x] [shortest-path-visiting-all-nodes](https://www.leetcode.com/problems/shortest-path-visiting-all-nodes/description)
+状态压缩 + bfs求最短路径 + /path记录/

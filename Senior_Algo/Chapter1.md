@@ -51,7 +51,5 @@ void union(int x, int y) {
 - [x] [connecting-graph-iii](https://www.lintcode.com/problem/connecting-graph-iii/description)
 - [x] [bricks-falling-when-hit](https://www.lintcode.com/problem/bricks-falling-when-hit/)
 
-可以用bfs+路径，也可以并查集记录两点间的值。
-- [x] [evaluate-division](https://www.lintcode.com/problem/evaluate-division/)
-
-
+可以用bfs+路径/dfs，也可以并查集记录两点间的值。
+- [ ] [evaluate-division](https://www.leetcode.com/problems/evaluate-division/)

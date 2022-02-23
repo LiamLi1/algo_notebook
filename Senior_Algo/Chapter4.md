@@ -32,7 +32,7 @@ class HashHeap {
 - [x] [sliding-window-maximum](https://www.lintcode.com/problem/sliding-window-maximum/description)
 $O(n)$ 时间复杂度，只有栈和队列
 可以维护一个递减栈，但是还要有一个front_peek和front_pop操作，所以用deque。
-![b770570e.png](:storage\278fae5f-0a52-4d46-a9fc-bfa3096d31bc\b770570e.png)
+
 
 ##### Stack
 找左边/右边 第一个比它大/小的元素

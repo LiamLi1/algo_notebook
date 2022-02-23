@@ -122,12 +122,26 @@ class MemDev(object):
         return False
 ``` 
 
+remove
+```
+my_dict.pop('key', None) # return None if not found
+```
+
+OrderedDict
+```python
+self.cache = OrderedDict()
+if len(self.cache) == self.capacity:
+    ## last = True时pop规则为FILO, last = False时pop规则为FIFO
+    self.cache.popitem(last = False)
+```
 
 ## stack
 ```
 python的内置数据结构list可以用来实现栈，用append()向栈顶添加元素, pop() 可以以后进先出的顺序删除元素
 
 但是列表本身有一些缺点，主要问题就是当列表不断扩大的时候会遇到速度瓶颈．列表是动态数组，因此往其中添加新元素而没有空间保存新的元素时，它会自动重新分配内存块，并将原来的内存中的值复制到新的内存块中．这就导致了一些append()操作会消耗更多的时间
+
+有效率要求直接用deque
 ```
 ```python
 from collections import deque     

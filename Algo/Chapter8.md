@@ -99,6 +99,7 @@ private void siftdown(int[] A, int k) {
  [堆排序之堆的概念—插入、删除、建堆 - 陈云佳的专栏 - CSDN博客](https://blog.csdn.net/BillCYJ/article/details/78482468)
 - [x] [find median from data stream](https://www.leetcode.com/problems/find-median-from-data-stream/description) keep Set1 || Median || Set2, 保证两边数字相等或set1 = set2 - 1. 所以set1/set2分别是最大值/最小值堆，然后进来新的数就调整。
 - [x] [find median in silding window](https://leetcode.com/problems/sliding-window-median/)
+*黑科技/ 两个heap来实现可以删除元素的heap。删除的效率为O(1).
 
 java 优先队列可以直接实现堆。除了最小值堆，都要实现Comparator接口。
 ```java

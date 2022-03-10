@@ -47,10 +47,10 @@ class IndexedTree{
 ```
 
 Heap
-- [x] [trapping-rain-water/](https://www.lintcode.com/problem/trapping-rain-water/)
+- [x] [trapping-rain-water/](https://www.leetcode.com/problems/trapping-rain-water/)
 
 不用stack也可以，两个指针
 
-- [x] [trapping-rain-water-ii/](https://www.lintcode.com/problem/trapping-rain-water-ii/)
+- [ ] [trapping-rain-water-ii/](https://www.leetcode.com/problems/trapping-rain-water-ii/)
 
 要用堆来灌水。最小值堆来定义外围。然后从外向内灌水

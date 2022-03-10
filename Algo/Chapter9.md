@@ -193,7 +193,7 @@ $O(n)$ 时间复杂度，只有栈和队列
 
 ##### 10. Ugly Number
  - [x] [Ugly-number](https://www.leetcode.com/problems/ugly-number/description)
- - [ ] [ugly-number-ii](https://www.leetcode.com/problems/ugly-number-ii/)
+ - [x] [ugly-number-ii](https://www.leetcode.com/problems/ugly-number-ii/)
  
  用heap，时间复杂度O(nlogn)。空间复杂度O(n)。从1开始，每次用最小的数乘以所有prime，出重以后加入heap。
  数据大的时候很可能溢出，所以要用Long来转换。

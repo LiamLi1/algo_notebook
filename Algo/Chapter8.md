@@ -60,9 +60,12 @@ Doubly Linked List 好理解。单链表也可以。
 用heap来做。是O(n(logn))
 用bucket的链表来做。是O(n)
 - [ ] *代码量太大，二刷再重新做*
-
+```
+https://leetcode.com/problems/lfu-cache/discuss/166683/Python-only-use-OrderedDict-get-O(1)-put-O(1)-Simple-and-Brief-Explained!!!!!!
+利用数据结构速度搞定
 ```
 
+```
 def linkFreqNode(self, listNode, freqNode):
 # link Freq的同时也处理listNode的位置
 def unlinkFreqNode(self, listNode, freqNode)

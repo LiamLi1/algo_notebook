@@ -40,7 +40,7 @@ class Point{
 }
 ```
 
-- [x] [number-of-airplanes-in-the-sky](https://www.lintcode.com/problem/number-of-airplanes-in-the-sky/description)
+- [ ] [number-of-airplanes-in-the-sky](https://www.leetcode.com/problems/number-of-airplanes-in-the-sky/description)
 
 hard: building outline
 - [x] [the-skyline-problem](https://www.lintcode.com/problem/the-skyline-problem/description) 求轮廓和轮廓高度。用一个堆来记录当前高度。

@@ -226,6 +226,9 @@ void insertSort(int[] A) {
 - [x]  [Balanced Binary Tree](https://www.leetcode.com/problems/balanced-binary-tree/)
 - [x] [$$$Binary Tree Maximum Path Sum$$$](https://www.leetcode.com/problems/binary-tree-maximum-path-sum/description) (对非法情况，求最大返回最小，求最小返回最大，求方案数返回0)
 - [x] [*Lowest Common Ancestor (包含parent指针 用List，或者不包含 用分治)](https://www.leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/)
+```
+高级分治：但是可以直接递归来简化。如果左边/右边有一边是lca就直接传上来。如果两边都是lca就返回root。如果root是p或者q就返回root。否则返回None。
+```
 
 
 ### BFS

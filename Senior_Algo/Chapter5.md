@@ -19,14 +19,15 @@ while (i < n-1){
   }
 
 ```
-- [x] [minimum-size-subarray-sum](https://www.lintcode.com/problem/minimum-size-subarray-sum/)
- - [x] [longest-substring-without-repeating-characters](https://www.lintcode.com/problem/longest-substring-without-repeating-characters/)
+- [x] [minimum-size-subarray-sum](https://www.leetcode.com/problems/minimum-size-subarray-sum/)
+ - [x] [longest-substring-without-repeating-characters](https://www.leetcode.com/problems/longest-substring-without-repeating-characters/)
  HashMap 中输入字符可以直接计算其ascii值
  
-- [x] [minimum-window-substring](https://www.lintcode.com/problem/minimum-window-substring/)
+- [x] [minimum-window-substring](https://www.leetcode.com/problems/minimum-window-substring/)
  ##### (2)快慢指针
 ##### 3.两个数组 两个指针
-- [ ] [the-smallest-difference](https://www.lintcode.com/problem/the-smallest-difference/description)
+
+- [x] [the-smallest-difference](https://www.lintcode.com/problem/the-smallest-difference/description) 贪心
 
 
  ##### 动态规划
@@ -34,16 +35,14 @@ while (i < n-1){
  1. 常规动态规划 + 空间优化
  不好想的时候，考虑用记忆化搜索。
 
- - [x]  [house robber](https://www.lintcode.com/problem/house-robber/)
+ - [x]  [house robber](https://www.leetcode.com/problems/house-robber/)
  滚动数组的长度由最长滞后项的滞后数决定。
- - [x] [maximal square](https://www.lintcode.com/problem/maximal-square/description)
- - [ ] :heart:
+ - [X] [maximal square](https://www.leetcode.com/problems/maximal-square/description)
  dp[i][j], (i,j) 最大正方形。
  dp[i][j] = dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]
 
 2. 记忆化搜索：
-状态转移麻烦，不是顺序的 / 
-初始化都不好找的时候
+状态转移麻烦，不是顺序的 / 初始化都不好找的时候
 
 - [x] [longest-continuous-increasing-subsequence-ii](https://www.lintcode.com/problem/longest-continuous-increasing-subsequence-ii/description)
 dfs 向四面走也没关系。只要定义好记忆化搜索和返回条件。

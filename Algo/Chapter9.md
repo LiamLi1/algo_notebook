@@ -53,6 +53,9 @@ i. $O(N^3)$动规再优化 ii.local_max + global_max 来优化/ 最后都是得�
 - [x] [Maximum Subarray ii](https://www.lintcode.com/problem/maximum-subarray-ii/)
 - [ ] 左右两边数组做一次
 - [x] [Maximum Subarray iii](https://www.lintcode.com/problem/maximum-subarray-iii/)
+```
+最后两层的for loop，最好同方向。不然不好化简。
+```
 - [ ] :carrot: 动归中的global与local
 - [x] [Maximum Subarray iv](https://www.lintcode.com/problem/maximum-subarray-iv/)
 - [x] [maximum subarray difference](https://www.lintcode.com/problem/maximum-subarray-difference/)
@@ -138,7 +141,10 @@ public int partitionArray(int[] nums, int k) {
 
 - [x] [Partition Array](https://www.lintcode.com/problem/partition-array/description) 
 - [x] [sort-letters-by-case](https://www.lintcode.com/problem/sort-letters-by-case/description)
-
+- [ ] [sort-colors](https://leetcode.com/problems/sort-colors/)
+```
+另类partition。用三个指针，中间的和首位的交换。或者两次常规partition也可。
+```
 
 ##### 8. Top K 问题
  - [x] [kth-smallest-numbers-in-unsorted-array](https://www.lintcode.com/problem/kth-smallest-numbers-in-unsorted-array/description)

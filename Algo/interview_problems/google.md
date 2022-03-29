@@ -24,3 +24,17 @@ DP,max + for循环，可以只算一遍存下来化简。同stock/max subarray�
 - [x] [step-by-step-directions-from-a-binary-tree-node-to-another](https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/)
 
 ### 3.https://www.1point3acres.com/bbs/thread-860809-1-1.html
+
+### 4.https://www.1point3acres.com/bbs/thread-857960-1-1.html
+- [ ] [race-car](https://leetcode.com/problems/race-car/)
+
+### 5.https://www.1point3acres.com/bbs/thread-856992-1-1.html
+- [ ] []()
+
+### 6.https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=838943 (股票题)
+- [ ] [stock-price-fluctuation/](https://leetcode.com/problems/stock-price-fluctuation/)
+
+```
+https://leetcode.com/problems/stock-price-fluctuation/discuss/1513293/Python-Clean-2-Heaps-Commented-Code
+2 heap 解法。用了two heap模拟删除的思路。
+```

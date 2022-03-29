@@ -40,10 +40,10 @@ class Point{
 }
 ```
 
-- [ ] [number-of-airplanes-in-the-sky](https://www.leetcode.com/problems/number-of-airplanes-in-the-sky/description)
+- [x] [number-of-airplanes-in-the-sky](https://www.lintcode.com/problem/number-of-airplanes-in-the-sky/description)
 
 hard: building outline
-- [x] [the-skyline-problem](https://www.lintcode.com/problem/the-skyline-problem/description) 求轮廓和轮廓高度。用一个堆来记录当前高度。
+- [x] [the-skyline-problem](https://www.leetcode.com/problems/the-skyline-problem/description) 求轮廓和轮廓高度。用一个堆来记录当前高度。
 
 可以用TreeSet来解决这道题。因为每个进来的点在原始数组中的index是unique的。把这个信息放入TreeSet 的comparator就导入多个高度相同的点了。
 
@@ -63,6 +63,11 @@ hard: building outline
 start<= sum[i] - sum[j] <= end
 sum[j] + start<= sum[i] <=sum[j] + end
 把sum[i] 放进线段树。相当于求[sum[j] + start, sum[j] + end] 这个范围内有多少点。这个就是一个区间count型的线段树。
+
+- [ ] [count-of-range-sum](https://leetcode.com/problems/count-of-range-sum/)
+```
+前缀和+三次二分
+```
 
 （2） maximum subarray
 [maximum-subarray](https://www.lintcode.com/problem/maximum-subarray/)

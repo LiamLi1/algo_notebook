@@ -1,5 +1,5 @@
 ## Nine Chapter Class 1
-- [ ] [Subset](https://www.lintcode.com/problem/subsets/description)
-- [x] [Permutate](https://www.lintcode.com/problem/permutations/description)
+- [x] [Subset](https://www.leetcode.com/problems/subsets/description)
+- [x] [Permutate](https://www.leetcode.com/problems/permutations/description)
 
 # starting code from mac pro

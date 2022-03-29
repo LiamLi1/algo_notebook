@@ -7,12 +7,22 @@
 # count
 message = "abcdeb"
 message.count("b") # return 2
-# index
+
+# index 如果找不到回报错。不如用find，找不到返回-1.
 "abdcef".index("b") # 1
 "abdcefb".index("b", 2) #6
 "abdcefb".rindex("b") #6
+
+# find
+"S2sdf".find("sdf", 3) #-1
+"S2sdf".find("sdf", 10) #-1
+"S2sdf".rfind("sdf", 2) # 2
 # isnumeric
 txt.isnumeric("22") # true. 非负整数才行
+# sorted 转换字符串成list
+string = "BCBA"
+"".join(sorted(string)) # "ABBC"
+
 ```
 
 ### 整除
@@ -279,3 +289,7 @@ for i,x in enumerate(equations):
     # i: 0~len(equation)
     # x: equation
 ```
+
+### SortedList
+
+### LFU

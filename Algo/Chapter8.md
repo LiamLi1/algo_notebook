@@ -80,7 +80,7 @@ def unlinkFreqNode(self, listNode, freqNode)
 最优二叉树/ 最大堆，父节点大于儿子/ 最小堆同.
 父节点： (j - 1)/2
 左子节点/右子节点： j * 2 + 1/ j * 2 + 2
-- [x] [heapfily](https://www.lintcode.com/problem/heapify/description) 操作：sift down 建堆， sift up/down 删除元素。 建堆复杂度是O(N)
+- [x] [heapfily](https://www.lintcode.com/problem/heapify/description) 操作：sift down 建堆， sift up/down 添加/删除元素。 建堆复杂度是O(N)
 ```java
 private void siftdown(int[] A, int k) {
         while (k * 2 + 1 < A.length) {

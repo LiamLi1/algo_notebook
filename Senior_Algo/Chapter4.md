@@ -1,10 +1,13 @@
 ## Senior Algo Class 4
 ### Hash Heap
-
-
-
+```
+要点：
+1.用黑科技来代替HashHeap，实现update/delete/add
+2.hashheap的hash和heap分别应该存什么
+```
 交换的时候，hash表里面指向的也要交换。
 接口：插入/删除/ sit-up/ sit-dowm/
+
 
 ```java
 class HashHeap {
@@ -29,12 +32,15 @@ class HashHeap {
 
 - [x] [the-skyline-problem](https://www.leetcode.com/problems/the-skyline-problem/description)
 ```
-2刷重做
+用hashheap黑科技搞定
 https://leetcode.com/problems/the-skyline-problem/discuss/593234/Python-3-Heap
 ```
 
 - [x] [sliding-window-median](https://www.leetcode.com/problems/sliding-window-median)
 固定滑动窗口问题： 1. 增加元素 2. 删除元素
+
+- [x] [stock-price-fluctuation/](https://leetcode.com/problems/stock-price-fluctuation/)
+1.增加元素 2.删除元素 3.更新元素
 ---
 
 ### Deque
@@ -47,6 +53,7 @@ $O(n)$ 时间复杂度，只有栈和队列
 找左边/右边 第一个比它大/小的元素
 - [x] [max-tree](https://www.lintcode.com/problem/max-tree/description)
 - [x] [histogram](https://www.leetcode.com/problems/largest-rectangle-in-histogram/)
+- [ ] [sum-of-subarray-ranges](https://leetcode.com/problems/sum-of-subarray-ranges/)
 
 表达式树
 1. 二叉树

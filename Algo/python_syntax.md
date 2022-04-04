@@ -25,13 +25,16 @@ string = "BCBA"
 
 ```
 
-### 整除
+### 整除/取模
 ```python
 有负数的情况
 int(num2 * 1.0 / num1)
 
 没有负数
 num1 // num2
+
+取模数要先取整
+MOD = int(1e9 + 7)
 ```
 
 ### List

@@ -26,15 +26,63 @@ DP,max + for循环，可以只算一遍存下来化简。同stock/max subarray�
 ### 3.https://www.1point3acres.com/bbs/thread-860809-1-1.html
 
 ### 4.https://www.1point3acres.com/bbs/thread-857960-1-1.html
-- [ ] [race-car](https://leetcode.com/problems/race-car/)
+- [x] [race-car](https://leetcode.com/problems/race-car/)
 
 ### 5.https://www.1point3acres.com/bbs/thread-856992-1-1.html
-- [ ] []()
+- [ ] [shortest-path-in-a-grid-with-obstacles-elimination/](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/)
+
+- [ ] python sorted list (balanced binary tree)
+
+- [ ] python unit test
 
 ### 6.https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=838943 (股票题)
-- [ ] [stock-price-fluctuation/](https://leetcode.com/problems/stock-price-fluctuation/)
+- [x] [stock-price-fluctuation/](https://leetcode.com/problems/stock-price-fluctuation/)
 
 ```
 https://leetcode.com/problems/stock-price-fluctuation/discuss/1513293/Python-Clean-2-Heaps-Commented-Code
 2 heap 解法。用了two heap模拟删除的思路。
 ```
+
+### 7.https://www.1point3acres.com/bbs/thread-832915-1-1.html
+
+### 8.https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=831560&ctid=232507
+
+```
+字符串 permutation 比较题
+```
+- [ ] [strings-differ-by-one-character/](https://leetcode.com/problems/strings-differ-by-one-character/)
+- [x] [maximum-swap/](https://leetcode.com/problems/maximum-swap/)
+
+- [ ] [tiling-a-rectangle-with-the-fewest-squares/](https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares/)
+
+- [ ] 实现 grep
+
+
+### 9.https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=831346&ctid=232507 1道没看懂，1道dfs
+- [ ] [strings-differ-by-one-character/](https://leetcode.com/problems/strings-differ-by-one-character/)
+```
+Trie树变形? 不可行。依然要搜索所有点，复杂度更高。
+还是存wild card到dict比较好用
+很可能要想到hash才行
+另外一道类似的题/permutation string match 就可以用trie。用这个题的方法。
+可以用Trie树来练习permutation string match。
+```
+- [ ][skyline]
+
+### 10.https://www.1point3acres.com/bbs/thread-831180-2-1.html
+
+### 11.https://www.1point3acres.com/bbs/thread-826273-1-1.html
+```
+字符串 permutation 比较题
+https://leetcode.com/problems/strings-differ-by-one-character/
+```
+
+### 12.https://www.1point3acres.com/bbs/thread-805786-1-1.html
+### 13.https://www.1point3acres.com/bbs/thread-558122-1-1.html
+
+### 14.https://www.1point3acres.com/bbs/thread-355550-1-1.html
+```
+矩形填充
+https://github.com/grandyang/leetcode/issues/1240
+```
+- [ ] [tiling-a-rectangle-with-the-fewest-squares/](https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares/)

@@ -51,3 +51,12 @@ dfs会超时。用贪心+栈。考虑什么时候入栈。
 非二叉树的Divide and Conquer. （Merge & Sort）
 ¿¿¿ segment tree 的用法。离散化。一边插入一边搜索。
 ```
+
+
+---
+https://leetcode.com/company/google/
+
+google high freq
+- [ ] [https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips/](https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips/)||[ans](https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips/discuss/1669895/C%2B%2B-solution-determine-to-flip-by-the-1st-row-and-1st-column-with-explanation)
+
+- [ ] 

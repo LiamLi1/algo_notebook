@@ -31,7 +31,7 @@ mitbbs /careercup /glassdoor
 	head.next = pre
 	pre = head
 	head = temp
-- [x] [reverse-linked-list-ii](http://www.leetcode.com/problems/reverse-linked-list-ii)
+- [xx] [reverse-linked-list-ii](http://www.leetcode.com/problems/reverse-linked-list-ii)
 
  - [x] [merge-two-sorted-lists](https://www.leetcode.com/problems/merge-two-sorted-lists/description)
  - [x] [partition-list](https://www.leetcode.com/problems/partition-list/description)

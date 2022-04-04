@@ -34,12 +34,12 @@ public int BinarySearch(int A[], int target){
 - [ ] [search insert position](https://leetcode.com/problems/search-insert-position/)
 - [ ] [search a 2d Matrix](https://www.leetcode.com/problems/search-a-2d-matrix/)
 - [ ] [search a 2d Matrix ii](https://www.leetcode.com/problems/search-a-2d-matrix-ii/description)(递增矩阵） 
-- [x] ~~[first bad version](https://www.leetcode.com/problems/first-bad-version/)~~
-- [x] [find peak element](https://www.lintcode.com/problem/find-peak-element/) O(n) -> O(logn)  80% binary search
+- [ ] ~~[first bad version](https://www.leetcode.com/problems/first-bad-version/)~~
+- [x] [find peak element](https://www.leetcode.com/problems/find-peak-element/) O(n) -> O(logn)  80% binary search
 
 
 - [ ] [search-in-rotated-sorted-array](https://www.leetcode.com/problems/search-in-rotated-sorted-array/description) :memo: 通过mid是否大于start，再进一步二分。
-- [x] [search-in-rotated-sorted-array-ii](https://www.lintcode.com/problem/search-in-rotated-sorted-array-ii/description) (prove can only be in O(n))
+- [ ] [search-in-rotated-sorted-array-ii](https://www.lintcode.com/problem/search-in-rotated-sorted-array-ii/description) (prove can only be in O(n))
 - [x] [find minimum in rotated sorted array](https://www.lintcode.com/problem/find-minimum-in-rotated-sorted-array/description)
 - [x] [merge sorted array](https://www.lintcode.com/problem/merge-sorted-array/description)
 - [x] merge sorted array ii

@@ -64,11 +64,15 @@ https://blog.csdn.net/luoshixian099/article/details/51908175
 
 - [x] [network-delay-time](https://leetcode.com/problems/network-delay-time/)
 
-
-
+- [ ] [path-with-maximum-probability/](https://leetcode.com/problems/path-with-maximum-probability/)
+```
 Dijkstra
 求一个顶点到所有定点的最短路径
-从起始点开始，用一个优先队列存相邻的点的距离。每次弹出一个最近的点，然后把它相邻的点的距离更新，并把没有走过的做BFS。如果走过或者距离长就不用再走了。
+1.用一个hashmap记录起始点到其他点的距离。不存在就是无穷
+2.用heap存（距离，点），并用来BFS。先存起始点（0，x0)。
+从优先队列里面弹出点，标记为走过的。每次弹出一个最近的点，然后把它相邻的点的距离在hash里更新，并进队没有走过的/距离比现在的更短的。如果走过或者距离长就不用再走了。
+3.这里存的距离是指定点到下一个点的距离。
+```
 
 7.求所有顶点到所有定点的最短路径
 Floyd

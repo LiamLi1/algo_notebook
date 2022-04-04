@@ -44,6 +44,7 @@ https://leetcode.com/problems/stock-price-fluctuation/discuss/1513293/Python-Cle
 ```
 
 ### 7.https://www.1point3acres.com/bbs/thread-832915-1-1.html
+- [x] [cord tree string](./cord_segment_tree.py)
 
 ### 8.https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=831560&ctid=232507
 

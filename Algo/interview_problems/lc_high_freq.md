@@ -1,7 +1,7 @@
 ### Google & Microsoft highfreq(2022-03)
 https://leetcode.com/problemset/all/?sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D&companySlugs=google%2Cmicrosoft&page=1
 
-- [r] [https://leetcode.com/problems/minimum-window-subsequence/](minimum-window-subsequence)
+- [r] [minimum-window-subsequence](https://leetcode.com/problems/minimum-window-subsequence/)
 ```
 滚动数组复用时，需要重新初始化
 ```
@@ -59,4 +59,17 @@ https://leetcode.com/company/google/
 google high freq
 - [ ] [https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips/](https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips/)||[ans](https://leetcode.com/problems/remove-all-ones-with-row-and-column-flips/discuss/1669895/C%2B%2B-solution-determine-to-flip-by-the-1st-row-and-1st-column-with-explanation)
 
-- [ ] 
+### bitmask
+```
+bitmask 原意指用一个bit来修改数字
+例如：
+Mask:   10000000b
+Value:  00000101b
+---- OR ---------
+Result: 10000101b
+
+这里主要是把数字扁平化来存状态。然后再用这个状态来进行bfs/dfs memo
+
+```
+- [x] [minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix/](https://leetcode.com/problems/minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix/)
+

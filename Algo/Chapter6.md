@@ -73,3 +73,9 @@ mitbbs /careercup /glassdoor
 - [ ] O(1)做一遍
 
 - [x] [convert-sorted-list-to-binary-search-tree](https://www.leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description) 用分治，n(logN)。用奇怪的递归，得到O(n)。
+
+- [ ] [https://www.jiuzhang.com/solution/basic-calculator-iii/](https://www.jiuzhang.com/solution/basic-calculator-iii/)
+```
+Build tree, use minimal tree. number:3, "*/":2, "+-":1
+
+```

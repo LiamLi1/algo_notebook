@@ -9,11 +9,11 @@
 - [x] [maximum-product-subarray](https://www.leetcode.com/problems/maximum-product-subarray/)
 
 下面的都可以从$O(N^{3})$ -> $O(N^{2})$
-- [ ] [maximum-subarray-iii](https://www.lintcode.com/problem/maximum-subarray-iii/)
+- [¿¿] [maximum-subarray-iii](https://www.lintcode.com/problem/maximum-subarray-iii/)
 ```
 最后两层的for loop，要同方向。不然不好化简。
 ```
-- [ ] [best-time-to-buy-and-sell-stock-iv](https://www.lintcode.com/problem/best-time-to-buy-and-sell-stock-iv/)
+- [¿¿] [best-time-to-buy-and-sell-stock-iv](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
 要记录localmin 和 localmax
 - [x] [maximum-number-of-points-with-cost](https://leetcode.com/problems/maximum-number-of-points-with-cost/) 狗家面经
 

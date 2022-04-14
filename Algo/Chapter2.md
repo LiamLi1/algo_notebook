@@ -43,7 +43,7 @@ public int BinarySearch(int A[], int target){
 - [x] [find minimum in rotated sorted array](https://www.lintcode.com/problem/find-minimum-in-rotated-sorted-array/description)
 - [x] [merge sorted array](https://www.lintcode.com/problem/merge-sorted-array/description)
 - [x] merge sorted array ii
-- [x] [median of two sorted arrays](https://www.lintcode.com/problem/median-of-two-sorted-arrays/) :memo:
+- [¿¿] [median of two sorted arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) :memo:
 ---
 
 

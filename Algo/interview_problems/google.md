@@ -87,3 +87,41 @@ https://leetcode.com/problems/strings-differ-by-one-character/
 https://github.com/grandyang/leetcode/issues/1240
 ```
 - [ ] [tiling-a-rectangle-with-the-fewest-squares/](https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares/)
+
+
+### 15.https://www.1point3acres.com/bbs/thread-879616-1-1.html
+猜词题
+- [x] [guess-the-word/](https://leetcode.com/problems/guess-the-word/)
+```
+概率计算的方法
+```
+- [ ] [rectangle-area-ii/](https://leetcode.com/problems/rectangle-area-ii/)扫描线 动态维护区间长度
+- [x] [word-search-ii/](https://leetcode.com/problems/word-search-ii/)
+- [x] [interval-list-intersections/](https://leetcode.com/problems/interval-list-intersections/) 两个指针/扫描线
+- [x] [palindrome-partitioning-ii/](https://leetcode.com/problems/palindrome-partitioning-ii/)
+- [x] [stamping-the-grid/](https://leetcode.com/problems/stamping-the-grid/)
+
+
+
+
+### 16.https://www.1point3acres.com/bbs/thread-468115-1-1.html 
+```
+很复杂的计算正方形个数
+https://www.1point3acres.com/bbs/thread-870576-1-1.html
+
+```
+
+### 17.https://www.1point3acres.com/bbs/thread-873383-1-1.html
+
+```
+这个比较简单。Binary chain node/race car/string cipher/https://leetcode.com/problems/evaluate-reverse-polish-notation/
+```
+
+### 18.https://www.1point3acres.com/bbs/thread-870974-1-1.html
+```
+第二题可以考虑treemap+merge interval。自己写一遍
+```
+- [ ] [interleaving-string/](https://leetcode.com/problems/interleaving-string/)
+
+- [ ] [binary-tree-coloring-game/](https://leetcode.com/problems/binary-tree-coloring-game/)
+

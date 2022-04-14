@@ -12,6 +12,17 @@ Top O(1) //都是average
 
  单调栈：当一个数被pop出来的时候，左边/右边比他大/小的第一个数就知道了
  - [x] [largest-rectangle-in-histogram](https://www.leetcode.com/problems/largest-rectangle-in-histogram/description) 找左/右边比它小/大的第一个数，用栈来做
+ 
+ ```
+ 两道拓展题，利用height转换，第二道不是单调栈的题
+ ```
+ - [ ] [maximal-rectangle/](https://leetcode.com/problems/maximal-rectangle/)
+ - [ ] [largest-submatrix-with-rearrangements/](https://leetcode.com/problems/largest-submatrix-with-rearrangements/)
+ 
+
+ ```
+ ```
+
  - [x] [max-tree](https://www.lintcode.com/problem/max-tree/description) 用上一题的方法。找每个数的父节点。
 
 - [x] [remove-k-digits/](https://www.leetcode.com/problems/remove-k-digits/description) 另类单调栈！
@@ -172,5 +183,28 @@ class TrieTree{
         node.word = word;
     }
 };
+
+```
+
+#### TreeDict
+```python
+from sortedcollections import SortedList
+from sortedcollections import SortedDict
+from sortedcollections import SortedSet
+
+python只能找插入位置。bisect_left/ bisect_right 表示插在最左边/最右边。floor和ceil要另外写，利用插入位置找到index，
+再根据
+i.key是否在dict里面
+ii.index是否为首尾
+来判断
+
+ind_floor = d.bisect_left(key)
+if key not in keys:
+    ind_floor -= -1
+    
+        
+ind_ceil = d.bisect_right(key)
+if ind_ceil == len(keys):
+    ind_ceil = -1
 
 ```

@@ -14,21 +14,21 @@ answer: f[s1.length()][s2.length()]
 
 - [x] [Longest Common Subsequence](http://www.leetcode.com/problems/longest-common-subsequence) (Array (Substring)是连续的。Sequence则不是)
 - [x] [Longest Common Substring](http://www.lintcode.com/problem/longest-common-substring) 
-- [x] [Edit Distance](http://www.leetcode.com/problems/edit-distance) f[i][j]表示第一个字符串的前i个字符，配上第二个字符串的前j个字符的edit distance最小是多少。
+- [xx] [Edit Distance](http://www.leetcode.com/problems/edit-distance) f[i][j]表示第一个字符串的前i个字符，配上第二个字符串的前j个字符的edit distance最小是多少。
 EditDistance(A,B) = MAXLEN(A,B) - LCS(A,B)
-- [x] [Distinct Subsequences](http://www.leetcode.com/problems/distinct-subsequences) 
+- [xx] [Distinct Subsequences](http://www.leetcode.com/problems/distinct-subsequences) 
 
 滚动数组，二维情况也可以像一维一样用。但是如果和当前行有关，则必须每次开始前都初始化。
 
 NO 不能用记忆化搜索。和reg expression 不一样，不是之和后面的一步有关。
 
-- [x] [interleaving-string](http://www.leetcode.com/problems/interleaving-string) 
+- [xx] [interleaving-string](http://www.leetcode.com/problems/interleaving-string) 
 - [x] 记忆化搜索/ dp 都做一次
 
 
 - [x] [Wildcard Matching](http://www.leetcode.com/problems/wildcard-matching) 
 - [x] :carrot: 记忆化搜索/ dp 都做一次
-- [x] [regular-expression-matching](https://www.leetcode.com/problems/regular-expression-matching/description) 
+- [xx] [regular-expression-matching](https://www.leetcode.com/problems/regular-expression-matching/description) 
 用dfs + 记忆华搜索解决更容易。因为不确定*的情况要往回走几步。注意在dfs里只能往前，不能回头。
 
 总结：
@@ -119,5 +119,10 @@ class Solution {
 
 - [ ] [maximum-product-subarray](https://www.lintcode.com/problem/maximum-product-subarray/description)
 
+
+- [ ] [valid-palindrome-iii/](https://leetcode.com/problems/valid-palindrome-iii/) 
+```
+用dfs更直观。也可以看成有条件的edit distance。
+```
 
 

@@ -14,9 +14,9 @@ Graph & Search
 
 - [x] 拓扑dfs/bfs。需要带条件看需不需要进入
 
--  [x] [$minimum-height-trees](https://www.leetcode.com/problems/minimum-height-trees/)
+-  [xx] [$minimum-height-trees](https://www.leetcode.com/problems/minimum-height-trees/)
 也是拓扑排序的题/从叶子结点往上BFS来找，可以找到最短树
-- [ ] retry 
+- [x] retry 
 
 
 ##### 3. Search
@@ -58,6 +58,9 @@ DFS to traverse routes, it is only a valid next node if the distance of node is 
 UnionFind + PriorityQueue来做。
 
 - [x] [minimum-risk-path](https://www.lintcode.com/problem/minimum-risk-path/description)
+```
+这个题更像是bfs的题，dijkstra变种
+```
 https://blog.csdn.net/luoshixian099/article/details/51908175
 
 ##### 6. 两点间最短距离（有权图）

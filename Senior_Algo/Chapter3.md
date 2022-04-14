@@ -79,7 +79,7 @@ count形。查询count个数的位置。
 初始化线段树，从1到n，每个点都是1. 从最大的数开始查询count。因为每个数都比它小，所以查到count的点就是它的位置。然后查第二小的数。刚刚最大数占的位置的数比它大了，所以那个点的值更新为0. 
 这样query函数要兼顾查询和修改的功能。
 
-- [ ] [count-of-range-sum/](https://leetcode.com/problems/count-of-range-sum/)
+- [xx] [count-of-range-sum/](https://leetcode.com/problems/count-of-range-sum/)
 
 ```
 1.也可以用递归，难想好写

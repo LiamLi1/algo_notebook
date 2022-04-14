@@ -3,6 +3,7 @@
 ### 常用函数
 
 ### String
+只有string有index
 ```python
 # count
 message = "abcdeb"
@@ -293,6 +294,111 @@ for i,x in enumerate(equations):
     # x: equation
 ```
 
-### SortedList
+### sortedcontainers
+``` python
+from sortedcollections import SortedList
+from sortedcollections import SortedDict
+from sortedcollections import SortedSet
+
+#api 类似
+SortedList.add()
+SortedList.update(iteral)
+
+SortedList.discard() # 没有元素不报错
+SortedList.remove() # 没有元素报错
+SortedList.pop() # 删除index，默认-1
+
+# 插入value的位置/ 左右选最左和最右/ 返回的是index，可以用peekitem/popitem来找到它
+SortedList.bisect_left() 
+SortedList.bisect_right()
+SortedList.count()
+SortedList.index()
+
+sl = SortedDict({'a': 1, 'b':2, 'c':3, 'd':4, 'e':5, 'h':8})
+sl.bisect_left('c') # 2
+
+# dict 可以对key用SortedList的操作
+SortedList.bisect_left()
+SortedList.bisect_right()
+SortedList.count()
+SortedList.index()
+
+SortedDict.peekitem(index=- 1) #取用
+SortedDict.update({})
+
+SortedDict.pop(key) 
+SortedDict.popitem(index=- 1) # 取出来的是（key，value）
+
+# irange
+sl = SortedDict({1:'1',2:'2',3:'3',4:'4',6:'6',8:'8'})
+list(sl.irange(3,5)) # [3, 4]
+
+
+# 自定义key
+SortedKeyList(key=neg)
+SortedKeyList.bisect_key_left()
+SortedKeyList.bisect_key_right()
+
+bisect_key 要用运算过后的key，比如这里-1
+```
+
+### Enum
+```python
+from enum import Enum
+Month = Enum('Month', ('Jan', 'Feb'))
+
+for name, member in Month.__members__.items():
+    print(name, '=>', member, ',', member.value)
+
+from enum import Enum, unique
+
+@unique
+class Weekday(Enum):
+    Sun = 0 # Sun的value被设定为0
+    Mon = 1
+    Tue = 2
+    Wed = 3
+    Thu = 4
+    Fri = 5
+    Sat = 6
+```
 
 ### LFU
+
+
+### Threading
+https://docs.python.org/3/library/threading.html#condition-objects
+
+### # 1. condition variable
+```python
+
+lock = threading.RLock()
+cv = threading.Condition(lock)
+cv.acquire()
+cv.signal() #cv.signal_all()
+cv.release()
+
+with cv: # try cv.acquire(), except, finally cv.release()
+
+# eg:
+space_tc.acquire()
+    while space == 0:
+        space_tc.wait()
+    space -= 1
+space_tc.release()
+
+```
+### # 2. semaphore variable
+https://docs.python.org/3/library/threading.html#semaphore-objects
+
+```python
+sema = threading.semaphore()
+sema.acquire()
+sema.release()
+
+# eg:
+semo_space = threading.semaphore()
+semo_space.acquire(1)
+
+```
+

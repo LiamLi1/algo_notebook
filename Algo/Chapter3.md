@@ -282,7 +282,7 @@ class Solution:
 
 - [x] [Search Range in a Binary Search Tree](http://www.lintcode.com/problem/search-range-in-binary-search-tree/)
 - [xx] :memo: [$$$Remove Node in Binary Search Tree$$$](http://www.lintcode.com/problem/remove-node-in-binary-search-tree/)第一道hard难度的题。和 Insert 一样，通过分治返回TreeNode的方式来改变BST的结构。  而且也是前序的思路完成的分治。
-- [x] [*Binary Search Tree Iterator](https://www.leetcode.com/problems/binary-search-tree-iterator/description) 
+- [xx] [*Binary Search Tree Iterator](https://www.leetcode.com/problems/binary-search-tree-iterator/description) 
 
 
 ---

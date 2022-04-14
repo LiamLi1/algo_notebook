@@ -38,6 +38,9 @@ https://leetcode.com/problems/the-skyline-problem/discuss/593234/Python-3-Heap
 
 - [x] [sliding-window-median](https://www.leetcode.com/problems/sliding-window-median)
 固定滑动窗口问题： 1. 增加元素 2. 删除元素
+```
+因为添加是按顺序的，删除的时候一定是从最前面删。所以可以用递增deque来做。
+```
 
 - [x] [stock-price-fluctuation/](https://leetcode.com/problems/stock-price-fluctuation/)
 1.增加元素 2.删除元素 3.更新元素

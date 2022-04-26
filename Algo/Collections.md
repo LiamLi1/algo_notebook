@@ -85,6 +85,9 @@ Integer[] array1 = arrayList.toArray(new Integer[arrayList.size()]);
 //5. 其他：
 subList(0, k); 返回子List
 
+//6. sort
+Arrays.sort(arr, Collections.reverseOrder());
+
 ```
 
 ### 2. Stack

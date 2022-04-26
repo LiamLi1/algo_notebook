@@ -125,3 +125,30 @@ https://www.1point3acres.com/bbs/thread-870576-1-1.html
 
 - [ ] [binary-tree-coloring-game/](https://leetcode.com/problems/binary-tree-coloring-game/)
 
+### 19.https://www.1point3acres.com/bbs/thread-886633-1-1.html
+
+- [ ] [logger-rate-limiter](https://leetcode.com/problems/logger-rate-limiter/)
+- [ ] [minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix](https://leetcode.com/problems/minimum-number-of-flips-to-convert-binary-matrix-to-zero-matrix/)
+
+### 20.https://www.1point3acres.com/bbs/thread-888104-1-1.html
+- [x] [combinations/](https://leetcode.com/problems/combinations/)
+
+### 21.https://www.1point3acres.com/bbs/thread-887516-1-1.html
+- [ ] [stock-price-fluctuation/](https://leetcode.com/problems/stock-price-fluctuation/)
+
+- [ ] [meeting-rooms-ii/]https://leetcode.com/problems/meeting-rooms-ii/
+
+### 22.https://www.1point3acres.com/bbs/thread-886985-1-1.html
+- [x] [reverse-bits/](https://leetcode.com/problems/reverse-bits/)
+
+- [x] [race-car/](https://leetcode.com/problems/race-car/)
+```
+线段-》矩形面积 换算， 类似于#16的那道题
+```
+
+### 23.https://www.1point3acres.com/bbs/thread-886985-1-1.html
+```
+https://leetcode.com/discuss/interview-question/1320700/Determine-if-a-string-can-be-shrunk-to-1-character-after-a-series-of-deletions
+```
+- [x] [longest-string-chain/](https://leetcode.com/problems/longest-string-chain/)
+- [x] [exclusive-time-of-functions/](https://leetcode.com/problems/exclusive-time-of-functions/)

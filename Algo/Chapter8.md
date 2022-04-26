@@ -27,6 +27,15 @@ Top O(1) //都是average
 
 - [x] [remove-k-digits/](https://www.leetcode.com/problems/remove-k-digits/description) 另类单调栈！
 
+```
+用栈来模拟情况
+```
+- [ ] [asteroid-collision/](https://leetcode.com/problems/asteroid-collision/ )
+```
+nested integer
+```
+- [ ] [flatten-nested-list-iterator/](https://leetcode.com/problems/flatten-nested-list-iterator/)
+
 ##### 3. Hash
 Collision:
 Open hashing(LinkedList)
@@ -145,6 +154,11 @@ Comparator<Integer> revCmp = new Comparator<Integer>() {
 ##### 5. Trie
 - [x] [word-search-ii](https://www.leetcode.com/problems/word-search-ii/)
 - [ ] 注意定义清楚dfs的状态。初始调用的时候是什么样子。
+
+```
+trie tree like problem
+```
+- [ ] [design-in-memory-file-system/](https://leetcode.com/problems/design-in-memory-file-system/)
 
 前缀树
 prefix search: 前缀查询 可以根据首字符来查是否有。

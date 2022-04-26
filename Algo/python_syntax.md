@@ -309,6 +309,11 @@ class Weekday(Enum):
 
 ```
 
+### Exception
+```python
+raise ValueError('A very specific bad thing happened.')
+```
+
 ### 其他
 ```
 for i,x in enumerate(equations):
@@ -386,6 +391,24 @@ class Weekday(Enum):
 ```
 
 ### LFU
+
+
+### Bit manipulation
+
+![bit1](../image/bit_1.png)
+![bit2](../image/bit2.png)
+
+```python
+'''
+&与 |或 ^异或
+~取返 >> << 左右移
+'''
+
+print(bin(16)) # 0b10000
+```
+
+
+
 
 
 ### Threading

@@ -9,6 +9,8 @@ new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
 Comparator
 Collections.sort:
 Arrays.sort(temp); //也可以针对char, int等基本类型。但是这些基本类型就不能定制comparator 了。
+Arrays.sort(a, Collections.reverseOrder());
+
 Arrays.sort(array, new Comparator<int[]>() { //自定义类型和数组都没问题
            @Override
            public int compare(int[] a, int[] b) {

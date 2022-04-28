@@ -264,8 +264,8 @@ heapq.heapify(x) # 将list x 转换成堆，原地，线性时间内。
 heap自定义comparator通过给元素新增tuple，其中第一项是可以排序来实现。
 或者自定义一个class 重写__lt__(self, other).
 
-```
-Define a class, in which override the __lt__() function. See example below (works in Python 3.7):
+```python
+# Define a class, in which override the __lt__() function. See example below (works in Python 3.7):
 
 import heapq
 
@@ -285,6 +285,10 @@ print(heap)  # output: [Node value: 0, Node value: 2, Node value: 1, Node value:
 
 heapq.heappop(heap)
 print(heap)  # output: [Node value: 1, Node value: 2, Node value: 2, Node value: 4]
+
+# hash function to be used as dict key
+def __hash__(self):
+    return hash((self.name, self.nick, self.color))
 ```
 
 ## Enum
@@ -319,6 +323,13 @@ raise ValueError('A very specific bad thing happened.')
 for i,x in enumerate(equations):
     # i: 0~len(equation)
     # x: equation
+
+# get a iterator from set
+iterator = iter(a_set)
+item1 = next(iterator, None)
+# Gets an item from `iterator`
+
+print(item1)
 ```
 
 ### sortedcontainers

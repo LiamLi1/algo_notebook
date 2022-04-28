@@ -152,3 +152,9 @@ https://leetcode.com/discuss/interview-question/1320700/Determine-if-a-string-ca
 ```
 - [x] [longest-string-chain/](https://leetcode.com/problems/longest-string-chain/)
 - [x] [exclusive-time-of-functions/](https://leetcode.com/problems/exclusive-time-of-functions/)
+
+### 24
+```python
+# find right sibling in binary tree with parent pointer
+https://www.geeksforgeeks.org/find-right-sibling-binary-tree-parent-pointers/
+```

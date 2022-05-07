@@ -51,3 +51,10 @@ multithreading? 想一想怎么做
 ```
 
 8.https://www.1point3acres.com/bbs/thread-884709-1-1.html
+
+
+9.
+```
+欧拉通路
+```
+- [ ] [reconstruct-itinerary/](https://leetcode.com/problems/reconstruct-itinerary/)

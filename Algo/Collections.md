@@ -242,7 +242,9 @@ while (entries.hasNext()) {
 
 ### 8. PriorityQueue
 ```java
-boolean offer(E e) //添加至队尾压栈：
+boolean offer(E e) //添加至队尾压栈：失败时false
+boolean add(E e) //同offer，但是失败时throw exception
+//对pq，因为是同步的，所以上述两条没差别
 boolean E poll() // 获取队列头部元素并删除 
 boolean E peek() //获取队列头部元素但不删除
 boolean remove(E e) //删除某个元素。复杂度是O(n + logn) = O(n)
@@ -530,6 +532,9 @@ public class Person implements Comparable<Person>{
 		return this.name.compareTo(o.name);
 	}
 }
+//必须implement comparable。multiple implements的写法。
+class Task implements Runnable, Comparable<Task>{}
+
 
 2. 在PriorityQueue中传入
 a. 直接new在传入的参数中:
@@ -651,8 +656,16 @@ class MyException extends Exception { // 创建自定义异常类
     }  
 } 
 
+throw new Exception("Exception message");
+
 ```
 2. 异常链
 ```java
 
+```
+
+### final
+
+```
+对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。
 ```

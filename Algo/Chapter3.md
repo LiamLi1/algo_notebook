@@ -64,6 +64,8 @@ void morris_inOrder(BiTree T) {
                 p = p->right;
             }
         }
+        //中序 - 往右走 
+        //前序 - 左为空 或者 往左走
     }
 	
 Template 4: While Loop (in/post order 比较难, preorder 直接可以写)
@@ -227,7 +229,12 @@ void insertSort(int[] A) {
 - [x] [$$$Binary Tree Maximum Path Sum$$$](https://www.leetcode.com/problems/binary-tree-maximum-path-sum/description) (对非法情况，求最大返回最小，求最小返回最大，求方案数返回0)
 - [x] [*Lowest Common Ancestor (包含parent指针 用List，或者不包含 用分治)](https://www.leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/)
 ```
-高级分治：但是可以直接递归来简化。如果左边/右边有一边是lca就直接传上来。如果两边都是lca就返回root。如果root是p或者q就返回root。否则返回None。
+高级分治：可以直接递归来简化。如果左边/右边有一边是lca就直接传上来。如果两边都是lca就返回root。如果root是p或者q就返回root。否则返回None。
+```
+- [ ] [closest-binary-search-tree-value-ii/](https://leetcode.com/problems/closest-binary-search-tree-value-ii/)
+```
+搞懂为什么用stack可以遍历BST。实质上是吧前驱全部存进stack。
+如果只是inorder traversal，可以不用peek，只pop。每次pop以后继续维护栈。
 ```
 
 

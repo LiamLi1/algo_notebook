@@ -166,8 +166,15 @@ class MemDev(object):
 ``` 
 
 remove
-```
+```python
 my_dict.pop('key', None) # return None if not found
+
+elem = my_set.pop()
+my_set.add(elem)
+
+remove(), pop() # error
+discard()/pop(key, "None") # non error
+# only set has discard. Use pop for dict
 ```
 
 OrderedDict
@@ -334,9 +341,9 @@ print(item1)
 
 ### sortedcontainers
 ``` python
-from sortedcollections import SortedList
-from sortedcollections import SortedDict
-from sortedcollections import SortedSet
+from sortedcontainers import SortedList
+from sortedcontainers import SortedDict
+from sortedcontainers import SortedSet
 
 #api 类似
 SortedList.add()
@@ -346,7 +353,7 @@ SortedList.discard() # 没有元素不报错
 SortedList.remove() # 没有元素报错
 SortedList.pop() # 删除index，默认-1
 
-# 插入value的位置/ 左右选最左和最右/ 返回的是index，可以用peekitem/popitem来找到它
+# 插入value的位置/ 左右选最左和最右/ 返回的是index，可以插入后再用peekitem/popitem来找到它
 SortedList.bisect_left() 
 SortedList.bisect_right()
 SortedList.count()
@@ -437,11 +444,21 @@ cv.release()
 with cv: # try cv.acquire(), except, finally cv.release()
 
 # eg:
-space_tc.acquire()
+try:
+    space_tc.acquire()
     while space == 0:
         space_tc.wait()
     space -= 1
-space_tc.release()
+except e:
+    print(e)
+finally:
+    space_tc.release()
+
+# same as below:
+with space_tc:
+    while space == 0:
+        space_tc.wait()
+    space -= 1
 
 ```
 ### # 2. semaphore variable

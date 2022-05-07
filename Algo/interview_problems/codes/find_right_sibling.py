@@ -29,7 +29,7 @@ parent right -> left most + same depth.
 
 go parent, if parent -> right == cur or None , continue
 i. find a parent, where its right != node, != none.
-ii. parent-right
+ii. parent-right, run findNode helper function
 '''
 def findRightSibling(node):
     height = 0
@@ -76,12 +76,12 @@ if __name__ == '__main__':
     #               1
     #             /   \
     #            2      3
-    #           /  \     \
-    #          4    6     5
+    #           /  \      \
+    #          4    6      5
     #         /      \    / \
     #        7        9  13   8
-    #        /         \     /
-    #       10         12   14
+    #       /          \     /
+    #      10          12   14
 
     root = newNode(1, None)
     root.left = newNode(2, root)

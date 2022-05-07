@@ -1,4 +1,8 @@
 ### 1.https://www.1point3acres.com/bbs/thread-791344-1-1.html
+```
+¿¿正方形组成题
+类似后面的能拼成多少个正方形。看完回来一起想。
+```
 - [x] [minimum-knight-moves](https://leetcode.com/problems/minimum-knight-moves/)
 ```
 可以用dfs/bfs。dfs的方法需要用马的走法来转换一下。感觉还dfs的方法还可以套dp。
@@ -24,16 +28,46 @@ DP,max + for循环，可以只算一遍存下来化简。同stock/max subarray�
 - [x] [step-by-step-directions-from-a-binary-tree-node-to-another](https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/)
 
 ### 3.https://www.1point3acres.com/bbs/thread-860809-1-1.html
+```
+round2
+- part1: 让写一个Tree, 可以return a random node (O(1))
+ - part2: 让写一个Tree, 可以return a random leaf (O(1)) insert-delete-getrandom-o1. 第二题可以用和最后一位交换删除的方法。
+
+round4
+part 1: shuffle("anyString" + anyChar) => newString,  判断 if we can obtain newString from `shuffle("anyString" + anyChar)`
+
+“ABC” + anyChar => "BACD" (True)  因为加了一个D 然后Shuffle
+“ABC” + anyChar => "BADD" (False)  
+
+part 2: [oldString....] [newString....], return counter of pairs that statisfies part1 ((m*n)^2
+
+(Strings only has 26 Chars, "A", "B"..."Z")
+a = ["A", "B", ""]
+b = ["AB", "AB", ""]
+
+用counter来化简。可以再接一个count pair计数。空间开销比较高。
+```
+- [x] [stock-price-fluctuation/](https://leetcode.com/problems/stock-price-fluctuation/)
+
 
 ### 4.https://www.1point3acres.com/bbs/thread-857960-1-1.html
+```
+
+```
 - [x] [race-car](https://leetcode.com/problems/race-car/)
 
 ### 5.https://www.1point3acres.com/bbs/thread-856992-1-1.html
-- [ ] [shortest-path-in-a-grid-with-obstacles-elimination/](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/)
+```
+#5-5 -> 同#3-1
+用python sortedcontainers SortedList写一遍.
+SortedList[index], 添加 删除 bisect_left 都是O(1).
+感觉也可以用BST，但是很复杂（要找前后2，添加，删除node，还要想办法平衡）
+```
+- [x] [stream_delete_nums](./codes/stream_close_delete.py)
+- [x] [shortest-path-in-a-grid-with-obstacles-elimination/](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/)
 
-- [ ] python sorted list (balanced binary tree)
-
-- [ ] python unit test
+- [x] python sorted list (balanced binary tree)
+- [x] python unit test
 
 ### 6.https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=838943 (股票题)
 - [x] [stock-price-fluctuation/](https://leetcode.com/problems/stock-price-fluctuation/)
@@ -106,7 +140,7 @@ https://github.com/grandyang/leetcode/issues/1240
 
 ### 16.https://www.1point3acres.com/bbs/thread-468115-1-1.html 
 ```
-很复杂的计算正方形个数
+¿¿很复杂的计算正方形个数
 https://www.1point3acres.com/bbs/thread-870576-1-1.html
 
 ```

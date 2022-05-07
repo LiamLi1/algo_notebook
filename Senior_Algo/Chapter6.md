@@ -13,7 +13,7 @@
 ```
 最后两层的for loop，要同方向。不然不好化简。
 ```
-- [¿¿] [best-time-to-buy-and-sell-stock-iv](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
+- [¿¿x] [best-time-to-buy-and-sell-stock-iv](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
 要记录localmin 和 localmax
 - [x] [maximum-number-of-points-with-cost](https://leetcode.com/problems/maximum-number-of-points-with-cost/) 狗家面经
 
@@ -62,9 +62,16 @@ for i in range(size - 1,-1,-1):
 暴力接发是在创建subarray的时候同步update关键feature。
 ```
 
- ---
+8.可以化简重复计算来降维度$O(N^3)$ -> $O(N^2)$
+- [x] [maximum-number-of-points-with-cost](https://leetcode.com/problems/maximum-number-of-points-with-cost/)
 
- 
+- [x] [best-time-to-buy-and-sell-stock-iv](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
+
+- [ ] [maximum-subarray-iii](https://www.lintcode.com/problem/maximum-subarray-iii/)
+
+- [ ] [paint-house-ii/](https://leetcode.com/problems/paint-house-ii/)
+
+ --- 
  
  ##### Follow Up Questions
  ##### 1. Partition 思想

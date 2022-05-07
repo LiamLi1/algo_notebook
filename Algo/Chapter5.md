@@ -56,6 +56,7 @@ answer: 能够使得f[n][X]最大的X （0 <= X <= m)
 
 
 #### 补充题：
+minmax 博弈类
 - [x] [the game of take numbers](https://leetcode.com/problems/predict-the-winner/) i 表示长度， j表示start point, f[i][j] 表示A最大能取得的优势
 - [ ] 把空间优化到一维
 

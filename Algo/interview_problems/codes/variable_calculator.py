@@ -9,12 +9,16 @@ def stringHelper(string):
     '''
     stack: map{a:2, ab:-3, ...}
     op_stack:['-','+', ...]
-    
+
     when '(', add empty map {} in stack to save result in ()
     when ')', do one extra calculation
-     
-    '''
+
+    Current version supports 2a(a+b)
+    doesn't support (a+b)(c+d)
+    doesn't support space ' ' very well
     
+    '''
+
     stack = collections.deque()
     op_stack = collections.deque()
     op_stack.append('+')
@@ -51,6 +55,7 @@ def stringHelper(string):
                     op_stack.append('*')
                 op_stack.append('+')
                 stack.append({})
+
             if char == ')':
                 curMap = stack.pop()
                 doCalculation(curMap, op_stack, stack)
@@ -100,7 +105,9 @@ def mapMutipleMap(map1, map2):
     for k1, v1 in map1.items():
         for k2, v2 in map2.items():
             newKey = ''.join(sorted(k1 + k2))
-            res[newKey] = v1 * v2
+            if newKey not in res:
+                res[newKey] = 0
+            res[newKey] += v1 * v2
     return res
 
 
@@ -108,10 +115,12 @@ if __name__ == '__main__':
     print(stringHelper('a-(b+c+b)'))
     print(stringHelper('3a(4b-3a)'))
     print(stringHelper('3a(4b-3a(3c-2a))'))
+    print(stringHelper('(a+b)*(a+b)*(a+b)'))
 
     '''
     print 
     {'a': 1, 'b': -2, 'c': -1}
     {'ab': 12, 'aa': -9}
     {'abc': 36, 'aab': -24, 'aac': -27, 'aaa': 18}
+    {'bbb': 1, 'abb': 3, 'aab': 3, 'aaa': 1}
     '''

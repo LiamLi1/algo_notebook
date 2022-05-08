@@ -78,22 +78,38 @@ https://leetcode.com/problems/stock-price-fluctuation/discuss/1513293/Python-Cle
 ```
 
 ### 7.https://www.1point3acres.com/bbs/thread-832915-1-1.html
+```
+1.餐厅排队系统：用hash + double linked list
+
+2.每次pop medium，返回一个sorted array：每次medium一定是前后添加。用deque搞定。
+
+3.cord tree
+
+4.list of queues，pop()操作很expensive，尽量少用，让你找最短的queue，follow up找最小sum的queue
+   # 用一个heap来存当前sum最小的是哪个queue，谁小就pop谁，直到有一个queue空掉
+
+```
 - [x] [cord tree string](./cord_segment_tree.py)
 
 ### 8.https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=831560&ctid=232507
 
 ```
-字符串 permutation 比较题
+字符串 第一轮 之前别人发过的，字符转换，定义F(str)是str permutation 再加上一个字母，比如ABC -> CBEA，给定俩字符串判断B=F(A) 是true还是false。同3-4
 ```
-- [ ] [strings-differ-by-one-character/](https://leetcode.com/problems/strings-differ-by-one-character/)
 - [x] [maximum-swap/](https://leetcode.com/problems/maximum-swap/)
 
 - [ ] [tiling-a-rectangle-with-the-fewest-squares/](https://leetcode.com/problems/tiling-a-rectangle-with-the-fewest-squares/)
 
-- [ ] 实现 grep
+- [ ] 实现 grep?
 
 
 ### 9.https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=831346&ctid=232507 1道没看懂，1道dfs
+```
+1.给你一个一个数组，其中的每一个元素代表一个player。举例：[1,2,3,4] ,  有4个player，player 1先和player 2比，player 3和player 4比，赢的人再互相比。直到剩下最后一个人为止。然后再给你一个概率的matrix 比如matrix[1][2] = 0.7 就代表了player1和player2比，player1赢得概率是0.7。求最终最有可能获胜的选手。
+dfs 递归
+
+
+```
 - [ ] [strings-differ-by-one-character/](https://leetcode.com/problems/strings-differ-by-one-character/)
 ```
 Trie树变形? 不可行。依然要搜索所有点，复杂度更高。
@@ -192,3 +208,20 @@ https://leetcode.com/discuss/interview-question/1320700/Determine-if-a-string-ca
 # find right sibling in binary tree with parent pointer
 https://www.geeksforgeeks.org/find-right-sibling-binary-tree-parent-pointers/
 ```
+
+### 25 https://www.1point3acres.com/bbs/thread-892931-1-1.html
+```
+1.完美二叉树构造
+```
+- [x] [number-of-islands-ii/](https://leetcode.com/problems/number-of-islands-ii/) 
+```
+i. number of water -> reversily do it
+follow up: minimal remove to get 1.
+```
+
+### 26 https://www.1point3acres.com/bbs/thread-852833-1-1.html
+```
+https://leetcode.com/discuss/interview-question/1920662/Google-or-Phone-or-Calculate-Total-Wait-Time
+
+```
+- [x] [total wait time](./codes/wait_time.py)

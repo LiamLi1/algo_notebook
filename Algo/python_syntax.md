@@ -353,7 +353,8 @@ SortedList.discard() # 没有元素不报错
 SortedList.remove() # 没有元素报错
 SortedList.pop() # 删除index，默认-1
 
-# 插入value的位置/ 左右选最左和最右/ 返回的是index，可以插入后再用peekitem/popitem来找到它
+# 插入value的位置/ 左右选最左和最右/ 返回的是index，可以插入后再用index来找到。
+
 SortedList.bisect_left() 
 SortedList.bisect_right()
 SortedList.count()

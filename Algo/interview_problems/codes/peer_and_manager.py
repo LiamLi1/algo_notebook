@@ -1,3 +1,11 @@
+’‘’
+一个class，一开始为空，有三个method，setManager(M, E), 
+M是E的direct manager，setPeers(E1, E2), 
+E1和E2是peers，E1的direct manager不是E2的，
+queryManager(MM, E)，问MM是否是E的manager，
+可以是很多层的manager。这三个method被call的顺序是随机的
+‘’‘
+
 class Solution:
     def __init__(self):
         self.peerMap = dict()

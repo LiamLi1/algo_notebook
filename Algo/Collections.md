@@ -658,9 +658,64 @@ class MyException extends Exception { // 创建自定义异常类
 
 throw new Exception("Exception message");
 
+
 ```
 2. 异常链
 ```java
+
+```
+
+## e5 MultiThreading
+```java
+// multithreading syntax
+
+available.awaitNanos(waitMillSec * 1000000);
+Thread.currentThread().getName();
+Thread.sleep(); // sleep, await, join时要处理InterruptedException
+Thread.currentThread().isInterrupted()
+/* 处理thread.interrupt()
+当线程A运行时，线程B可以调用A.interrupt()方法，来设置线程A的中断标志为true ()，然后线程B立即返回。注意，这里仅仅是设置标志，线程A实际并没有被中断，它会继续往下执行。但是有一种情况，如果线程A调用了wait系列函数、join方法或者sleep方法而被阻塞挂起，这时候线程B调用A.interrupt()方法时，线程A会在调用wait/join/sleep方法处抛出InterruptedException异常而返回。
+*/
+
+
+
+// 1.synchronized lock
+Object lock = new Object();
+public void increment() {
+    synchronized (lock) {
+        items++;
+    }
+}
+
+public void run() {
+    synchronized (queue) {
+        ....
+    }
+}
+
+// 2.ReentrantLock lock + condition
+Lock lockObject = new ReentrantLock();
+Condition cond = lockObject.newCondition();
+Resource resource = new Resource();
+public void method(){
+    try {
+        lockObject.lock();
+        while () {
+            cond.await();
+        }
+    } catch (InterruptedException e){
+        e.printStackTrace();
+    }
+    finally {
+        lockObject.unlock();
+    }
+}
+cond.signal();
+cond.signalAll();
+
+
+
+// 3.Semophora
 
 ```
 

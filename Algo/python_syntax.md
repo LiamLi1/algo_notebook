@@ -82,6 +82,13 @@ for l,r,h in buildings:
     points.append([r, -h, 'end'])
 points.sort(key=lambda x:( x[0], -x[1]))
 
+#创建多维数组
+
+#2d
+dp = [[0] * n for _ in range(n)]
+#3d
+dp = [[[0] * 4 for __ in range(n)] for _ in range(n)]
+
 ```
 2. 添加元素
 
@@ -426,6 +433,46 @@ class Weekday(Enum):
 print(bin(16)) # 0b10000
 ```
 
+
+### unit test
+example
+```python
+
+import unittest
+
+from my_sum import sum
+
+
+class TestSum(unittest.TestCase):
+    def test_list_int(self):
+        """
+        Test that it can sum a list of integers
+        """
+        data = [1, 2, 3]
+        result = sum(data)
+        self.assertEqual(result, 6)
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+class TestingClass(unittest.TestCase):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # java 直接super（params）
+        # python则需要加上super().init(...)
+        
+        self.gen_stubs()
+
+.assertEqual(a, b)	a == b
+.assertTrue(x)	bool(x) is True
+.assertFalse(x)	bool(x) is False
+.assertIs(a, b)	a is b
+.assertIsNone(x)	x is None
+.assertIn(a, b)	a in b
+.assertIsInstance(a, b)	isinstance(a, b)
+```
 
 
 

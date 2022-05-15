@@ -3,6 +3,7 @@
 2.https://www.1point3acres.com/bbs/thread-189226-1-1.html
 ```
 写了interface
+比较标准的infra track面试流程
 ```
 
 3.https://www.1point3acres.com/bbs/thread-161803-1-1.html
@@ -38,19 +39,22 @@ linkedin高频整理
 
 - [x] [insert-delete-getrandom-o1-duplicates-allowed/](https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/)
 
-- [ ] [kth-smallest-product-of-two-sorted-arrays/](https://leetcode.com/problems/kth-smallest-product-of-two-sorted-arrays/)
+- [x] [kth-smallest-product-of-two-sorted-arrays/](https://leetcode.com/problems/kth-smallest-product-of-two-sorted-arrays/)
 
 6.https://www.1point3acres.com/bbs/thread-892096-1-1.html
 ```
 design 面block ip
 ```
-- [ ] [minimum-window-substring/](https://leetcode.com/problems/minimum-window-substring/)
+- [x] [minimum-window-substring/](https://leetcode.com/problems/minimum-window-substring/)
 
 7.https://www.1point3acres.com/bbs/thread-887688-1-1.html
 
 
 8.电面
-- [ ] [bulb-switcher/](https://leetcode.com/problems/bulb-switcher/)
+- [x] [bulb-switcher/](https://leetcode.com/problems/bulb-switcher/)
+```
+主要是想怎么推导。
+```
 
 9.https://www.1point3acres.com/bbs/thread-871413-1-1.html
 ```
@@ -105,7 +109,7 @@ https://www.youtube.com/watch?v=TYO849M8Q5U
 2.topK
 https://www.youtube.com/watch?v=kx-XDoPjoHw
 
-3.metrics
+3.metrics / monitor
 https://www.youtube.com/watch?v=UEJ6xq4frEw
 ```
 Alex Xu的第二本书里的case study
@@ -122,3 +126,12 @@ https://forum.acecodeinterview.com/t/topic/365
 ```
 
 5.key value: （big table）https://www.1point3acres.com/bbs/thread-841026-1-1.html
+
+6.short url
+
+7.mini Kafka
+
+
+一道hard dp
+- [ ] https://leetcode.com/problems/count-different-palindromic-subsequences/discuss/272297/DP-C%2B%2B-Clear-solution-explained
+

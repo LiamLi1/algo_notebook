@@ -45,7 +45,7 @@ part 2: [oldString....] [newString....], return counter of pairs that statisfies
 a = ["A", "B", ""]
 b = ["AB", "AB", ""]
 
-用counter来化简。可以再接一个count pair计数。空间开销比较高。
+用counter来化简。用wild card的思路。
 ```
 - [x] [stock-price-fluctuation/](https://leetcode.com/problems/stock-price-fluctuation/)
 
@@ -108,6 +108,8 @@ https://leetcode.com/problems/stock-price-fluctuation/discuss/1513293/Python-Cle
 1.给你一个一个数组，其中的每一个元素代表一个player。举例：[1,2,3,4] ,  有4个player，player 1先和player 2比，player 3和player 4比，赢的人再互相比。直到剩下最后一个人为止。然后再给你一个概率的matrix 比如matrix[1][2] = 0.7 就代表了player1和player2比，player1赢得概率是0.7。求最终最有可能获胜的选手。
 dfs 递归
 
+2.字符串有一位不一样
+3.skyline
 
 ```
 - [ ] [strings-differ-by-one-character/](https://leetcode.com/problems/strings-differ-by-one-character/)
@@ -121,18 +123,46 @@ Trie树变形? 不可行。依然要搜索所有点，复杂度更高。
 - [ ][skyline]
 
 ### 10.https://www.1point3acres.com/bbs/thread-831180-2-1.html
+```
+1. 给一个integer矩阵和两个坐标start, end. 找到在矩阵中从start 走到 end的最短距离（只能横向或纵向走）。而且矩阵中有的点是不能通过的，需要绕道。直接BFS最短路径解决。
+follow up: 如果不是给两个点，而给你一个list of 开始坐标，和一个list of 结束坐标，你可以从选择从任意开始坐标走到任意结束坐标，问怎么走可以使得每个开始坐标到结束坐标的路径和最小。？？
+
+2.给一个integer数组，和数组中的一个num，may contain duplicates. 返回一个数组就是这个num在数组中排序后的indexes。
+
+3.找出所有的bad commit。给一个commit number n代表有0到n个commit，再给一个boolean isWorse(int c1,int c2)方法，返回true代表c2比c1 bad。求利用此方法返回所有bad的commit。嗯，这就是题目，也没给例子。到现在我都没搞懂，我自己举个例子如 0（good） 1（bad） 2（good） 3（bad），她说需要返回【1，3】。clarify半天说如果1比0worse的话1要加入结果，如果3比2better的话不能数说明3是good因为前面1已经开始bad了（意思是只有前面有bad的，后面再好也不会超过bad的这个？）。貌似要引导我用binary search。
+
+```
+- [x] [bad commit](./codes/bad_commits.py)
 
 ### 11.https://www.1point3acres.com/bbs/thread-826273-1-1.html
 ```
-字符串 permutation 比较题
+1.cord tree
+
+2.字符串 permutation 比较题
 https://leetcode.com/problems/strings-differ-by-one-character/
+
+3.maze
+
+4.菜谱
 ```
 
 ### 12.https://www.1point3acres.com/bbs/thread-805786-1-1.html
+```
+1.菜谱
+2.https://leetcode.com/problems/minimum-window-substring/
+拓展题：https://leetcode.com/problems/minimum-window-subsequence/
+剩下的说得不太清楚/感觉不难
+```
 ### 13.https://www.1point3acres.com/bbs/thread-558122-1-1.html
+```
+比较老的题了。经验是静态图可以不用unionfind
+```
 
 ### 14.https://www.1point3acres.com/bbs/thread-355550-1-1.html
+
 ```
+也是比较老的题了
+扫地机器人
 矩形填充
 https://github.com/grandyang/leetcode/issues/1240
 ```
@@ -224,4 +254,9 @@ follow up: minimal remove to get 1.
 https://leetcode.com/discuss/interview-question/1920662/Google-or-Phone-or-Calculate-Total-Wait-Time
 
 ```
+
+
+---
+### Ref https://docs.google.com/document/d/1-o6zJs0_VGc0WKaryVnLIYDRwLnPJ8WNF346_ZKKg6Q/edit#heading=h.aw6kuef7szv2
 - [x] [total wait time](./codes/wait_time.py)
+- [x] [variable calculator](./codes/variable_calculator.py)

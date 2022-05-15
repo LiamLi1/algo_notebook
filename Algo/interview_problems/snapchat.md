@@ -28,3 +28,14 @@ meeting rooms 2 + heap
 
 7.https://www.1point3acres.com/bbs/thread-865532-1-1.html
 - [ ] [design-in-memory-file-system/](https://leetcode.com/problems/design-in-memory-file-system/)
+
+8.https://www.1point3acres.com/bbs/thread-889888-1-1.html
+- [x] [nested-list-weight-sum/](https://leetcode.com/problems/nested-list-weight-sum/)
+
+9.https://www.1point3acres.com/bbs/thread-873905-1-1.html
+```
+word search OOD?
+nested list weight sum
+
+用有限的memory（假设只能存k个element）实现可以存无限element的queue，其实本质就是把开头结尾放在memory，中间放在disk。
+```

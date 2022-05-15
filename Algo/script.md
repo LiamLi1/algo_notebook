@@ -25,3 +25,11 @@ for i = 1 to n:
             T[i][j] = max(T[i][j], T[i][j - p[i]] + v[i])
 return T[n][B]
 ```
+
+my_map = {}
+randInt(1, 15)  return 4  map:{4:15}  res = [4]
+randInt(1, 14)  return 6  map:{4:15, 6:14} res = [4,6]
+randInt(1, 13)  return 4  map:{4:13, 6:14} res = [4,6,15]
+randInt(1, 12)  return 6  map:{4:15, 6:12} res = [4,6,15,14]
+randInt(1, 11)  return 4  map:{4:11, 6:14} res = [4,6,15,14,13]
+

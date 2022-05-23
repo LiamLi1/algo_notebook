@@ -85,7 +85,7 @@ design topK
 design calendar
 https://www.youtube.com/watch?v=TYO849M8Q5U
 ```
-- [ ] [max-stack/](https://leetcode.com/problems/max-stack/)
+- [x] [max-stack/](https://leetcode.com/problems/max-stack/)
 ```
 想一下double linked list怎么搞
 ```

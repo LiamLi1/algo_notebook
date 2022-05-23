@@ -329,6 +329,9 @@ class Weekday(Enum):
 
 ### Exception
 ```python
+class B(Exception):
+    pass
+
 raise ValueError('A very specific bad thing happened.')
 ```
 

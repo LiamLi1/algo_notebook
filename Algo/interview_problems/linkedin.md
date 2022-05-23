@@ -22,6 +22,10 @@ ref: java producer/consumer model
 https://segmentfault.com/a/1190000024444906
 
 ```
+- [x] [implement](../interview_problems/codes/delayed_scheduler.java)
+
+refer: https://silhding.github.io/2021/03/13/How-to-design-a-delayed-scheduler-in-Java/#Approach-2-PriorityQueue-timer
+
 
 ---
 

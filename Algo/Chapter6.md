@@ -3,7 +3,7 @@
 ### Linked List
 mitbbs /careercup /glassdoor
 
-- [x] [remove-duplicates-from-sorted-list](http://www.leetcode.com/problems/remove-duplicates-from-sorted-list)
+- [xk] [remove-duplicates-from-sorted-list](http://www.leetcode.com/problems/remove-duplicates-from-sorted-list)
 
 ##### 1. 查找
 	1. head != null / head.next != null
@@ -13,13 +13,13 @@ mitbbs /careercup /glassdoor
  	pre/ cur/ next
  	pre.next = next; (pre.next.next)
 
-- [x] [remove-duplicates-from-sorted-list-ii](http://www.leetcode.com/problems/remove-duplicates-from-sorted-list-ii)
+- [xk] [remove-duplicates-from-sorted-list-ii](http://www.leetcode.com/problems/remove-duplicates-from-sorted-list-ii)
 
 ##### 3. 头节点要改变，就要建立 dummy node
 	dummy node -> head
 	然后把 dummy node 看成 head
 
-- [x] [reverse-linked-list](http://www.leetcode.com/problems/reverse-linked-list)
+- [xk] [reverse-linked-list](http://www.leetcode.com/problems/reverse-linked-list)
  
 ##### 4. swap(a, b) 和翻转
 	// swap
@@ -31,10 +31,10 @@ mitbbs /careercup /glassdoor
 	head.next = pre
 	pre = head
 	head = temp
-- [xx] [reverse-linked-list-ii](http://www.leetcode.com/problems/reverse-linked-list-ii)
+- [xxkr] [reverse-linked-list-ii](http://www.leetcode.com/problems/reverse-linked-list-ii)
 
- - [x] [merge-two-sorted-lists](https://www.leetcode.com/problems/merge-two-sorted-lists/description)
- - [x] [partition-list](https://www.leetcode.com/problems/partition-list/description)
+ - [xk] [merge-two-sorted-lists](https://www.leetcode.com/problems/merge-two-sorted-lists/description)
+ - [xk] [partition-list](https://www.leetcode.com/problems/partition-list/description)
 
 ##### 5. sort
 	merge sort
@@ -44,29 +44,55 @@ mitbbs /careercup /glassdoor
 	3. 排序（递归）
 	4. 合并 
 递归的时间复杂度： 每一层的复杂度 $\times$ 有多少层
-- [x] [sort-list](https://www.leetcode.com/problems/sort-list/description)
+- [xk] [sort-list](https://www.leetcode.com/problems/sort-list/description)
 
 ##### 6. 基本操作的组合
 	1. 找中间节点
 	2. 插入/删除
 	3. 翻转
 	4. 合并
-- [x] [reorder-list](https://www.leetcode.com/problems/reorder-list/description)
+- [xk] [reorder-list](https://www.leetcode.com/problems/reorder-list/description)
 分别用merge sort 和 quick sort
 
 ##### 7. 快慢指针
 
- - [x] [remove nth node from the end of list](https://www.leetcode.com/problems/remove-nth-node-from-end-of-list/description)
-- [x] [middle of linked list](https://www.lintcode.com/problem/middle-of-linked-list/description)
-- [x] [linked list cycle](https://www.leetcode.com/problems/linked-list-cycle/description)
-- [x] [linked list cycle ii](https://www.leetcode.com/problems/linked-list-cycle-ii/description)
+ - [xk] [remove nth node from the end of list](https://www.leetcode.com/problems/remove-nth-node-from-end-of-list/description)
+- [xk] [middle of linked list](https://www.lintcode.com/problem/middle-of-linked-list/description)
+- [xk] [linked list cycle](https://www.leetcode.com/problems/linked-list-cycle/description)
+- [xk] [linked list cycle ii](https://www.leetcode.com/problems/linked-list-cycle-ii/description)
 ```
 假设环的长度为l，环上入口距离链表头距离为a，两指针第一次相遇处距离环入口为b，则另一段环的长度为c=l-b，由于快指针走过的距离是慢指针的两倍，则有a+l+b=2*(a+b),又有l=b+c，可得a=c，故当判断有环时(slow==fast)时，从头移动慢指针，同时移动快指针，两指针相遇处即为环的入口。
+
+
+		|.    a      |.   b    |
+		h-o-o-o-....-o-o-o-....o
+		              \o-o-o-o/
+
+		f s meet at b.
+		circle length is l
+
+		s go : a + b
+		f go : a + l + b
+		f go twice of s -> (a + b) * 2 = a + l + b
+		 -> l = a + b
+		 l = b + c
+		 so c = a.
+
+		 when f / s meet, another pointer starts from head, and they will meet at the entrance of the cycle.
+
 ```
 
 ##### 8. heap
-- [x] [merge-k-sorted-lists](https://www.leetcode.com/problems/merge-k-sorted-lists/description)
-- [x] merge and heap 
+- [xk] [merge-k-sorted-lists](https://www.leetcode.com/problems/merge-k-sorted-lists/description)
+- [xr] merge divide conquer -> 不用recursion，用interval * 2 来做。模版如下：
+```python
+		amount = len(lists)
+        interval = 1
+        while interval < amount:
+            for i in range(0, amount - interval, interval * 2):
+                lists[i] = self.merge2Lists(lists[i], lists[i + interval])
+            interval *= 2
+```
 
 
 - [x] [copy-list-with-random-pointer](https://www.leetcode.com/problems/copy-list-with-random-pointer/)

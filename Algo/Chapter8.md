@@ -7,34 +7,43 @@
 Push O(1)
 Pop O(1)
 Top O(1) //都是average
- - [x] [min-stack](https://www.leetcode.com/problems/min-stack/description)建两个栈。一个放最小值。保持两个栈大小一致。
- - [x] [implement-queue-by-two-stacks](https://www.lintcode.com/problem/implement-queue-by-two-stacks/description)
+ - [xk] [min-stack](https://www.leetcode.com/problems/min-stack/description)建两个栈。一个放最小值。保持两个栈大小一致。
+ - [xk] [implement-queue-by-two-stacks](https://www.lintcode.com/problem/implement-queue-by-two-stacks/description)
 
- 单调栈：当一个数被pop出来的时候，左边/右边比他大/小的第一个数就知道了
- - [x] [largest-rectangle-in-histogram](https://www.leetcode.com/problems/largest-rectangle-in-histogram/description) 找左/右边比它小/大的第一个数，用栈来做
+ 单调栈：当一个数被pop出来的时候，
+  左边和右边比他大（递减栈）/小（递增栈）的第一个数就知道了
+  eg:递增栈 栈内pop的是左边第一个比它小的数。进入的是右边第一个比它小的数。
+ - [xk] [largest-rectangle-in-histogram](https://www.leetcode.com/problems/largest-rectangle-in-histogram/description) 找左/右边比它小/大的第一个数，用栈来做
  
  ```
  两道拓展题，利用height转换，第二道不是单调栈的题
  ```
- - [ ] [maximal-rectangle/](https://leetcode.com/problems/maximal-rectangle/)
- - [ ] [largest-submatrix-with-rearrangements/](https://leetcode.com/problems/largest-submatrix-with-rearrangements/)
- 
+ - [k] [maximal-rectangle/](https://leetcode.com/problems/maximal-rectangle/)
+ - [k] [largest-submatrix-with-rearrangements/](https://leetcode.com/problems/largest-submatrix-with-rearrangements/)
 
- ```
- ```
+- [xk] [remove-k-digits/](https://www.leetcode.com/problems/remove-k-digits/description) 另类单调栈！
 
- - [x] [max-tree](https://www.lintcode.com/problem/max-tree/description) 用上一题的方法。找每个数的父节点。
+- [xk] [sliding-window-maximum](https://www.leetcode.com/problems/sliding-window-maximum/description)
+单调队列解决sliding window
 
-- [x] [remove-k-digits/](https://www.leetcode.com/problems/remove-k-digits/description) 另类单调栈！
 
 ```
 用栈来模拟情况
 ```
-- [ ] [asteroid-collision/](https://leetcode.com/problems/asteroid-collision/ )
+- [k] [asteroid-collision/](https://leetcode.com/problems/asteroid-collision/ )
 ```
 nested integer
 ```
-- [ ] [flatten-nested-list-iterator/](https://leetcode.com/problems/flatten-nested-list-iterator/)
+- [k] [flatten-nested-list-iterator/](https://leetcode.com/problems/flatten-nested-list-iterator/)
+
+- [kr] [decode-string](https://leetcode.com/problems/decode-string/)
+
+- [k] [basic-calculator-ii/](https://leetcode.com/problems/basic-calculator-ii/)
+
+- [k] [basic-calculator-iii](https://leetcode.com/problems/basic-calculator-iii/)
+前置operator ‘+’ ‘-’ 然后把负数入栈，可以完成有负数的情况
+
+- [k] [simplify-path](https://leetcode.com/problems/simplify-path/)
 
 ##### 3. Hash
 Collision:
@@ -72,17 +81,19 @@ Rehasing:
 
 Difference of HashTable/ HashSet/ HashMap (Thread safe? only hashTable. )
 
-- [x] [LRU cache](https://www.leetcode.com/problems/lru-cache/description)
+- [xk] [LRU cache](https://www.leetcode.com/problems/lru-cache/description)
 思路： 用链表+hash
 Doubly Linked List 好理解。单链表也可以。
 
-- [x] [LFU cache](https://www.leetcode.com/problems/lfu-cache/description)
+- [xr] [LFU cache](https://www.leetcode.com/problems/lfu-cache/description)
 用heap来做。是O(n(logn))
 用bucket的链表来做。是O(n)
-- [ ] *代码量太大，二刷再重新做*
+
 ```
 https://leetcode.com/problems/lfu-cache/discuss/166683/Python-only-use-OrderedDict-get-O(1)-put-O(1)-Simple-and-Brief-Explained!!!!!!
 利用数据结构速度搞定
+from collections import OrderedDict
+能记录加入dict的key的顺序。
 ```
 
 ```
@@ -92,15 +103,18 @@ def unlinkFreqNode(self, listNode, freqNode)
 # unlinkFreq的同时也unlink listNode
 ```
 
-- [x] [longest-consecutive-sequence](https://www.leetcode.com/problems/longest-consecutive-sequence/)  看每个元素近来几次/出去几次，来计算时间复杂度
-- [x] [subarray-sum](https://www.lintcode.com/problem/subarray-sum/description)
-- [x] [anagrams](https://www.lintcode.com/problem/anagrams/description)
+- [xk] [longest-consecutive-sequence](https://www.leetcode.com/problems/longest-consecutive-sequence/)  看每个元素近来几次/出去几次，来计算时间复杂度
+只需要统计num - 1不在set里的。确保是起点
+- [xk] [subarray-sum](https://www.lintcode.com/problem/subarray-sum/description)
+- [k] [subarray-sum-equals-k](https://leetcode.com/problems/subarray-sum-equals-k/)
+- [xk] [contiguous-array](https://www.leetcode.com/problems/contiguous-array/description) 哈希找位置类型
+- [k] [longest-balanced-substring-after-one-swap](https://leetcode.com/problems/longest-balanced-substring-after-one-swap/)
 
 ##### 4. Heap
 最优二叉树/ 最大堆，父节点大于儿子/ 最小堆同.
 父节点： (j - 1)/2
 左子节点/右子节点： j * 2 + 1/ j * 2 + 2
-- [x] [heapfily](https://www.lintcode.com/problem/heapify/description) 操作：sift down 建堆， sift up/down 添加/删除元素。 建堆复杂度是O(N)
+
 ```java
 private void siftdown(int[] A, int k) {
         while (k * 2 + 1 < A.length) {
@@ -120,9 +134,12 @@ private void siftdown(int[] A, int k) {
 ```
 
  [堆排序之堆的概念—插入、删除、建堆 - 陈云佳的专栏 - CSDN博客](https://blog.csdn.net/BillCYJ/article/details/78482468)
+
+ - [k] [sort-an-array heap sort](https://leetcode.com/problems/sort-an-array/)
 - [x] [find median from data stream](https://www.leetcode.com/problems/find-median-from-data-stream/description) keep Set1 || Median || Set2, 保证两边数字相等或set1 = set2 - 1. 所以set1/set2分别是最大值/最小值堆，然后进来新的数就调整。
 - [x] [find median in silding window](https://leetcode.com/problems/sliding-window-median/)
-*黑科技/ 两个heap来实现可以删除元素的heap。删除的效率为O(1).
+*黑科技/ 用一个hashmap来记录仍然存在heap里的元素。删除的时候只从hash里删，top/pop的时候验证是否在对里。可以实现删除的效率为O(1).
+
 
 java 优先队列可以直接实现堆。除了最小值堆，都要实现Comparator接口。
 ```java
@@ -152,13 +169,13 @@ Comparator<Integer> revCmp = new Comparator<Integer>() {
 - [x] [merge-k-sorted-lists](https://www.leetcode.com/problems/merge-k-sorted-lists/description)
 
 ##### 5. Trie
-- [x] [word-search-ii](https://www.leetcode.com/problems/word-search-ii/)
-- [ ] 注意定义清楚dfs的状态。初始调用的时候是什么样子。
+- [xk] [word-search-ii](https://www.leetcode.com/problems/word-search-ii/)
 
 ```
 trie tree like problem
 ```
-- [ ] [design-in-memory-file-system/](https://leetcode.com/problems/design-in-memory-file-system/)
+- [kr] [design-in-memory-file-system/](https://leetcode.com/problems/design-in-memory-file-system/)
+edge cases
 
 前缀树
 prefix search: 前缀查询 可以根据首字符来查是否有。

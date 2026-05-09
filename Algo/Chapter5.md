@@ -2,7 +2,7 @@
 
 ### Dynamic Programming II
 subarray的题在senior7中有单独讨论。一般不是dp，有可能是线段树或者map/subsum等记录中间状态。比如下面这道题，就是用min_subsum 和 subsum来做成O(n)。
-- [x] [Maximum Subarray](http://www.leetcode.com/problems/maximum-subarray)
+- [xr] [Maximum Subarray](http://www.leetcode.com/problems/maximum-subarray)
 
 
 #### 3. Two Sequences DP
@@ -12,24 +12,26 @@ function: f[i][j] = 研究第i个和第j个的匹配关系
 intialize: f[i][0] 和 f[0][i]
 answer: f[s1.length()][s2.length()]
 
-- [x] [Longest Common Subsequence](http://www.leetcode.com/problems/longest-common-subsequence) (Array (Substring)是连续的。Sequence则不是)
+- [xk] [Longest Common Subsequence](http://www.leetcode.com/problems/longest-common-subsequence) (Array (Substring)是连续的。Sequence则不是)
 - [x] [Longest Common Substring](http://www.lintcode.com/problem/longest-common-substring) 
-- [xx] [Edit Distance](http://www.leetcode.com/problems/edit-distance) f[i][j]表示第一个字符串的前i个字符，配上第二个字符串的前j个字符的edit distance最小是多少。
+- [xxk] [Edit Distance](http://www.leetcode.com/problems/edit-distance) f[i][j]表示第一个字符串的前i个字符，配上第二个字符串的前j个字符的edit distance最小是多少。
 EditDistance(A,B) = MAXLEN(A,B) - LCS(A,B)
-- [xx] [Distinct Subsequences](http://www.leetcode.com/problems/distinct-subsequences) 
+- [xxk] [Distinct Subsequences](http://www.leetcode.com/problems/distinct-subsequences) 
+- [xkr] [shortest-common-supersequence](https://leetcode.com/problems/shortest-common-supersequence/) # DFS + memo超空间 用dp优化.
 
 滚动数组，二维情况也可以像一维一样用。但是如果和当前行有关，则必须每次开始前都初始化。
 
 NO 不能用记忆化搜索。和reg expression 不一样，不是之和后面的一步有关。
 
-- [xx] [interleaving-string](http://www.leetcode.com/problems/interleaving-string) 
+- [xxk] [interleaving-string](http://www.leetcode.com/problems/interleaving-string) 
 - [x] 记忆化搜索/ dp 都做一次
 
 
-- [x] [Wildcard Matching](http://www.leetcode.com/problems/wildcard-matching) 
+- [xk] [Wildcard Matching](http://www.leetcode.com/problems/wildcard-matching) 
 - [x] :carrot: 记忆化搜索/ dp 都做一次
-- [xx] [regular-expression-matching](https://www.leetcode.com/problems/regular-expression-matching/description) 
-用dfs + 记忆华搜索解决更容易。因为不确定*的情况要往回走几步。注意在dfs里只能往前，不能回头。
+- [xxkr] [regular-expression-matching](https://www.leetcode.com/problems/regular-expression-matching/description) 
+用dfs + 记忆华搜索解决更容易。~~因为不确定*的情况要往回走几步~~。dp要考虑往前一步的情况，只是不好写。
+注意在dfs里只能往前，不能回头。
 
 总结：
 1. 如果只和后面一步有关，可以用记忆化搜索。如果只和前面的一步有关，可以动归。
@@ -42,17 +44,19 @@ initialize: f[x][0] = true; f[0][1...m] = false
 answer: 能够使得f[n][X]最大的X （0 <= X <= m)
 
 
-- [x] [*Backpack](http://www.lintcode.com/problem/backpack) 考虑如何省空间（取模做成滚动数组）
-- [x] [*Backpack II](http://www.lintcode.com/problem/backpack-ii) 
-- [x] 背包求具体方案（回溯）
-- [x] [k-sum](http://www.lintcode.com/problem/k-sum/)
-- [x] [Minimum Adjustment Cost](http://www.lintcode.com/problem/minimum-adjustment-cost/) 
+- [xk] [*Backpack](http://www.lintcode.com/problem/backpack) 考虑如何省空间（取模做成滚动数组）
+- [xk] [*Backpack II](http://www.lintcode.com/problem/backpack-ii) 
+- [xk] 背包求具体方案（回溯）- 用dp数组的结果倒推。看往哪里走。
+- [xk] [k-sum](http://www.lintcode.com/problem/k-sum/)
+可以用memo来倒推需要用几纬的dp
 
 #### Conclusion
 
 - Recursive VS DP:
 递归是一种程序的实现方式，即函数的自我调用
 动归是一种方法：大规模问题的结果由小规模结果计算而来。主要是用来优化，减少搜索的次数。动归可以由递归来实现（Memorization Search）
+记忆化搜索的时间复杂度：O(状态数 * 单次状态转移的复杂度)
+由于递归开销，会比dp要高。而且dp可以用动态数组节约空间。
 
 
 #### 补充题：

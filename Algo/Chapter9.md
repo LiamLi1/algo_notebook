@@ -12,7 +12,7 @@ High frequency question
 ---
 
 ##### 1. Single Number
- - [x]  [single-number](https://www.leetcode.com/problems/single-number/) 所有的都异或起来就行。
+ - [xk]  [single-number](https://www.leetcode.com/problems/single-number/) 所有的都异或起来就行。
  用 xor 异或 ^  口诀：不进位加法
  相同为0，不同为1
  
@@ -23,10 +23,20 @@ High frequency question
  a ^ b = c => b ^ c = a, b ^ a = c
  满足结合律/交换律
  ```
- - [x]  [single-number-ii](https://www.leetcode.com/problems/single-number-ii/) 三进制下的异或。也可以用口诀算。
- - [x]  [single-number-iii](https://www.leetcode.com/problems/single-number-iii/) int lastBit = xor - (xor & (xor - 1));
- - [ ]  [single-number-iv](https://www.lintcode.com/problem/single-number-iv/)
- 不好用模板的二分/ 通过奇偶性来判断在哪边。
+ - [xk]  [single-number-ii](https://www.leetcode.com/problems/single-number-ii/) 三进制下的异或。也可以用口诀算。
+```
+bits[i] += (num >> i) & 1; bits[i] %= 3;
+```
+
+ - [xkr]  [single-number-iii](https://www.leetcode.com/problems/single-number-iii/) 
+ ```
+ int lastBit = xor - (xor & (xor - 1)) 
+ xor =    10100110
+ xor - 1 =10100101
+ & :      00000010
+
+ ```
+ 
 
 ##### 2. Majority Number
 - [x] [majority element](https://www.leetcode.com/problems/majority-element/description) 发现不一样的就扔掉
@@ -38,23 +48,58 @@ High frequency question
 对第二、三题，找到可能的候选数字以后，要重新计数一次才行。
 
 #### 3.4 Subarray 类型：注意累加的应用
-- [x] [contiguous-array](https://www.leetcode.com/problems/contiguous-array/description)
+- [xk] [contiguous-array](https://www.leetcode.com/problems/contiguous-array/description) 哈希找位置类型
 
 ##### 3. Best Time buy or sell stock
-- [x] [best-time-to-buy-and-sell-stock](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock/)
-- [x] [best-time-to-buy-and-sell-stock-ii](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
-- [x] [best-time-to-buy-and-sell-stock-iii](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) 左右分别算
-- [x] [best-time-to-buy-and-sell-stock-iv](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) 两种动归
+- [xk] [best-time-to-buy-and-sell-stock](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+- [xk] [best-time-to-buy-and-sell-stock-ii](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
+- [xk] [best-time-to-buy-and-sell-stock-iii](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) 左右分别算
+- [x] [best-time-to-buy-and-sell-stock-iv](https://www.leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) 两种动归. 动归单元再做
+```
+dfs 直接解，O(N^3). 对应动归O(N^3).
+-> dfs 的memo和dp的复杂度对应，但是并不一定表示的含义类似。
+-> dp[i][j]可以表示，但是j要再叠一个loop才能求出来，所以成了O(N^3).
+
 i. $O(N^3)$动规再优化 ii.local_max + global_max 来优化/ 最后都是得到$O(N^2)$
 - [ ] :carrot: 动归的思想。用一个mustsell 和一个globalmax一起动归。原因？ global的最大值当然由mustsell来更新。因为不论如何都有一个最佳卖出的时机。但是mustsell的最大值不仅仅由mustsell决定。还和globalmax有关。
+```
 
 ##### 4. Maximum Subarray
-- [x] [Maximum Subarray](https://www.leetcode.com/problems/maximum-subarray/)
-- [x] [Maximum Subarray ii](https://www.lintcode.com/problem/maximum-subarray-ii/)
-- [ ] 左右两边数组做一次
+- [xk] [Maximum Subarray](https://www.leetcode.com/problems/maximum-subarray/)
+- [xk] [Maximum Subarray ii](https://www.lintcode.com/problem/maximum-subarray-ii/)
 - [x] [Maximum Subarray iii](https://www.lintcode.com/problem/maximum-subarray-iii/)
 ```
 最后两层的for loop，最好同方向。不然不好化简。
+class Solution:
+    """
+    @param: nums: A list of integers
+    @return: An integer denotes the sum of max two non-overlapping subarrays
+    """ß
+    def maxTwoSubArrays(self, nums):
+        # write your code here
+        if len(nums) == 0:
+            return 0
+        if len(nums) <= 2:
+            return sum(nums)
+        n = len(nums)
+        dp = [[0] * n for _ in range(3)]
+
+        subsum = [0] * (n + 1)
+        for i in range(len(nums)):
+            if i == 0:
+                subsum[i + 1] = nums[i]
+            else:
+                subsum[i + 1] = subsum[i] + nums[i]
+        # print(subsum)
+        for i in range(1, 3):
+            dp[i][i - 1] = subsum[i]
+            max_diff = 0
+            for j in range(i, n):
+                max_diff = max(max_diff, dp[i - 1][j - 1] - subsum[j])
+                dp[i][j] = max(dp[i][j - 1], subsum[j + 1] + max_diff)
+                # for k in range(j):
+                #     dp[i][j] = max(dp[i][j], subsum[j + 1] + dp[i - 1][k] - subsum[k + 1])
+        # print(dp)
 ```
 - [ ] :carrot: 动归中的global与local
 - [x] [Maximum Subarray iv](https://www.lintcode.com/problem/maximum-subarray-iv/)
@@ -64,10 +109,11 @@ i. $O(N^3)$动规再优化 ii.local_max + global_max 来优化/ 最后都是得�
 
 
 ##### 5. n sum
-- [x] [two sum](https://www.leetcode.com/problems/two-sum/description)
-- [x] [2Sum-closet](https://www.lintcode.com/problem/two-sum-closest-to-target/description)
-- [x] [3sum](https://www.leetcode.com/problems/3sum/description)
+- [xk] [two sum](https://www.leetcode.com/problems/two-sum/description)
+- [xk] [3sum](https://www.leetcode.com/problems/3sum/description)
 ksum: DP II
+- [k] [3sum-closest](https://leetcode.com/problems/3sum-closest/)
+- [ ] [ksum](https://leetcode.com/problems/find-the-k-sum-of-an-array)
 
 ##### 6. Quick Questions
 - [ ] [power](https://www.lintcode.com/problem/fast-power/)
@@ -139,15 +185,14 @@ public int partitionArray(int[] nums, int k) {
 }
 ```
 
-- [x] [Partition Array](https://www.lintcode.com/problem/partition-array/description) 
-- [x] [sort-letters-by-case](https://www.lintcode.com/problem/sort-letters-by-case/description)
-- [ ] [sort-colors](https://leetcode.com/problems/sort-colors/)
+- [xk] [Partition Array](https://www.lintcode.com/problem/partition-array/description) 
+- [k] [sort-colors](https://leetcode.com/problems/sort-colors/)
 ```
 另类partition。用三个指针，中间的和首位的交换。或者两次常规partition也可。
 ```
 
 ##### 8. Top K 问题
- - [x] [kth-smallest-numbers-in-unsorted-array](https://www.lintcode.com/problem/kth-smallest-numbers-in-unsorted-array/description)
+ - [k] [Kth largest element quick sort -> 快排模版](https://leetcode.com/problems/kth-largest-element-in-an-array/description/)
 1. 用heap有两种解法。maxHeap/minHeap, 看K和N的大小来决定用哪种。
 2. 用quick select来递归
 ```java
@@ -191,7 +236,7 @@ private void quickSort(int[] A, int start, int end) {
 
 ```
 ##### 9. Window 问题
-- [x] [sliding-window-maximum](https://www.leetcode.com/problems/sliding-window-maximum/description)
+- [xk] [sliding-window-maximum](https://www.leetcode.com/problems/sliding-window-maximum/description)
 $O(n)$ 时间复杂度，只有栈和队列
 可以维护一个递减栈，但是还要有一个front_peek和front_pop操作，所以用deque。
 找中间用heap
@@ -253,3 +298,14 @@ partition/ merge/ 插入/ 选择/ 冒泡/ 桶排序
 
 ##### 16 map reduce
 https://www.lintcode.com/problem/?tag=map-reduce
+
+
+
+##### 未分类
+- [] [basic-calculator-ii/](https://leetcode.com/problems/basic-calculator-ii/)
+
+
+curl -X POST
+  localhost:8080/api/v2/redis-endpoints-wait -H
+  "Content-Type: application/json" -d
+  '{"appName":"violet","workspaceName":"violet","clusterName":"test","clientId":"violet"}'

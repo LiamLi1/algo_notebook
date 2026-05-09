@@ -90,7 +90,37 @@ subList(0, k); 返回子List
 //6. sort
 Arrays.sort(arr, Collections.reverseOrder());
 
+//7. stream for loop
+empList.stream().forEach(e -> e.salaryIncrement(10.0));
+empList.parallelStream().forEach(e -> e.salaryIncrement(10.0));
+
+// combine with lambda function
+pipelines.stream()
+            .forEach(pipeline -> executorService.execute(() -> {
+                logger.info("Starting Pipeline: {}", pipeline.getName());
+                runner.run(pipeline);
+            }));
+
+// params
+// Lambda expressions can be stored in variables if the 
+// variable's type is an interface which has only one method. 
+// The lambda expression should have the same number of 
+// parameters and the same return type as that method. 
+// Java has many of these kinds of interfaces built in, 
+// such as the Consumer interface (found in the java.util
+//  package) used by lists.
+
+ArrayList<Integer> numbers = new ArrayList<Integer>();
+numbers.add(5);
+numbers.add(9);
+numbers.add(8);
+numbers.add(1);
+Consumer<Integer> method = (n) -> { System.out.println(n); };
+numbers.forEach( method );
+
 ```
+
+
 
 ### 2. Stack
 ```java
@@ -511,6 +541,398 @@ ii. 可以直接调用 WeekDayEnum.Mon.ordinal();
 iii. 
 ```
 
+### 16 Stream<T> (java 8)
+```java
+//1. Creation - Stream.of()
+Employee[] arrayOfEmps = {
+    new Employee(1, "Jeff Bezos", 100000.0), 
+    new Employee(2, "Bill Gates", 200000.0), 
+    new Employee(3, "Mark Zuckerberg", 300000.0)
+};
+Stream.of(arrayOfEmps);
+Stream.of(arrayOfEmps[0], arrayOfEmps[1], arrayOfEmps[2]);
+
+// List
+private static List<Employee> empList = Arrays.asList(arrayOfEmps);
+empList.stream();
+// builder
+Stream.Builder<Employee> empStreamBuilder = Stream.builder();
+empStreamBuilder.accept(arrayOfEmps[0]);
+empStreamBuilder.accept(arrayOfEmps[1]);
+empStreamBuilder.accept(arrayOfEmps[2]);
+Stream<Employee> empStream = empStreamBuilder.build();
+
+// 2.Operation
+// forEach - terminal operation. Used elements will not be used again.
+empList.stream().forEach(e -> e.salaryIncrement(10.0));
+
+// map | collect - apply to every elems
+// get stuff out of the stream, using reduce funciont Collectors.toList()
+
+public void whenMapIdToEmployees_thenGetEmployeeStream() {
+    Integer[] empIds = { 1, 2, 3 };
+    
+    List<Employee> employees = Stream.of(empIds)
+      .map(employeeRepository::findById)
+      .collect(Collectors.toList());
+    
+    assertEquals(employees.size(), empIds.length);
+}
+
+//filter
+Integer[] empIds = { 1, 2, 3, 4 };
+    
+List<Employee> employees = Stream.of(empIds)
+    .map(employeeRepository::findById)
+    .filter(e -> e != null)
+    .filter(e -> e.getSalary() > 200000)
+    .collect(Collectors.toList());
+
+//findFirst
+Employee employee = Stream.of(empIds)
+    .map(employeeRepository::findById)
+    .filter(e -> e != null)
+    .filter(e -> e.getSalary() > 100000)
+    .findFirst()
+    .orElse(null);
+
+//toArray
+Employee[] employees = empList.stream().toArray(Employee[]::new);
+
+//flatMap
+//Notice how we were able to convert the Stream<List<String>> to a simpler Stream<String> – using the flatMap() API.
+List<List<String>> namesNested = Arrays.asList( 
+    Arrays.asList("Jeff", "Bezos"), 
+    Arrays.asList("Bill", "Gates"), 
+    Arrays.asList("Mark", "Zuckerberg"));
+
+List<String> namesFlatStream = namesNested.stream()
+    .flatMap(Collection::stream)
+    .collect(Collectors.toList());
+
+//peek
+//performs the specified operation on each element of the stream and returns a new stream which can be used further. peek() is an intermediate operation
+// forEach is terminal operation, this is intermediate operation. 
+// peek can follow a peek, then filter, ...
+empList.stream()
+    .peek(e -> e.salaryIncrement(10.0))
+    .peek(System.out::println)
+    .collect(Collectors.toList());
+
+stream.peek(record -> logRecord(record))
+                 .peek(record -> inputRate.mark())
+                 .filter(record -> {
+                if (Objects.isNull(record.value())) {
+                nullRecords.inc();
+                logger.warn("Null value received from source – Key:{} Topic: {} Partition:{} ",
+                    record.key(), record.topic(), record.partition());
+                return false;
+                }
+                return true;
+            });
+
+```
+
+
+### 17 Reflection (Dropwizard config -> factory create sub class)
+反射是为了解决在运行期，对某个实例一无所知的情况下，如何调用其方法。
+
+1. Class类 （Class 是一种 class）
+```java
+//每加载一种class，JVM就为其创建一个Class类型的实例，并关联起来。
+Class cls = new Class(String); // Class<String>
+
+//Class实例在JVM中是唯一的。
+// 获取class的Class实例的方法有3种，得到的是同一个Class实例
+Class cls1 = String.class;
+String s = "Hello";
+Class cls2 = s.getClass();
+boolean sameClass = cls1 == cls2; // true
+Class cls3 = Class.forName("java.lang.String");
+
+//Class有这个class的全部信息 
+// ┌───────────────────────────┐
+// │      Class Instance       │──────> String
+// ├───────────────────────────┤
+// │name = "java.lang.String"  │
+// ├───────────────────────────┤
+// │package = "java.lang"      │
+// ├───────────────────────────┤
+// │super = "java.lang.Object" │
+// ├───────────────────────────┤
+// │interface = CharSequence...│
+// ├───────────────────────────┤
+// │field = value[],hash,...   │
+// ├───────────────────────────┤
+// │method = indexOf()...      │
+// └───────────────────────────┘
+
+//拿到了Class实例以后，可以用它创建class
+// 获取String的Class实例:
+Class cls = String.class;
+// 创建一个String实例:
+String s = (String) cls.newInstance();
+```
+2.获取字段
+
+```java
+
+Field getField(name)：根据字段名获取某个public的field（包括父类）
+Field getDeclaredField(name)：根据字段名获取当前类的某个field（不包括父类）
+Field[] getFields()：获取所有public的field（包括父类）
+Field[] getDeclaredFields()：获取当前类的所有field（不包括父类）
+
+一个Field对象包含了一个字段的所有信息
+
+getName()：返回字段名称，例如，"name"；
+getType()：返回字段类型，也是一个Class实例，例如，String.class；
+getModifiers()：返回字段的修饰符，它是一个int，不同的bit表示不同的含义。
+
+Field f = String.class.getDeclaredField("value");
+f.getName(); // "value"
+f.getType(); // class [B 表示byte[]类型
+
+
+例如，对于一个Pair实例，我们可以先拿到name字段对应的Field，再获取这个实例的name字段的值
+Field f = Pair.class.getDeclaredField("value");
+Pair p = new Pair("Xiao Ming");
+String s = (String) f.get(p);
+// System.out.println(s); "Xiao Ming"
+
+修改字段的值
+Field f = c.getDeclaredField("name");
+f.setAccessible(true);
+f.set(p, "Xiao Hong");
+
+```
+
+3.调用方法
+```java
+Method getMethod(name, Class...)：获取某个public的Method（包括父类）
+Method getDeclaredMethod(name, Class...)：获取当前类的某个Method（不包括父类）
+Method[] getMethods()：获取所有public的Method（包括父类）
+Method[] getDeclaredMethods()：获取当前类的所有Method（不包括父类）
+
+一个Method对象包含一个方法的所有信息：
+getName()：返回方法名称，例如："getScore"；
+getReturnType()：返回方法返回值类型，也是一个Class实例，例如：String.class；
+getParameterTypes()：返回方法的参数类型，是一个Class数组，例如：{String.class, int.class}；
+getModifiers()：返回方法的修饰符，它是一个int，不同的bit表示不同的含义。
+ 
+invoke
+Method m = String.class.getMethod("substring", int.class);
+// 在s对象上调用该方法并获取结果:
+String r = (String) m.invoke(s, 6);
+调用静态方法时，由于无需指定实例对象，所以invoke方法传入的第一个参数永远为null
+Method m = Integer.class.getMethod("parseInt", String.class);
+// 调用该静态方法并获取结果:
+Integer n = (Integer) m.invoke(null, "12345");
+为了调用非public方法，我们通过Method.setAccessible(true)
+
+多态时 调用的是子类复写的
+
+```
+
+4.构造函数
+调用Class.newInstance()的局限是，它只能调用该类的public无参数构造方法。
+如果构造方法带有参数，或者不是public，就无法直接通过Class.newInstance()来调用。
+
+所以提供了Constructor对象
+
+```java
+Constructor cons1 = Integer.class.getConstructor(int.class);
+// 调用构造方法:
+Integer n1 = (Integer) cons1.newInstance(123);
+System.out.println(n1);
+```
+
+5.获取继承关系
+```java
+//父类
+Class i = Integer.class;
+Class n = i.getSuperclass();
+//接口
+Class[] is = s.getInterfaces();
+//继承关系 Class 实例来判断
+Integer.class.isAssignableFrom(Integer.class); // true，因为Integer可以赋值给Integer
+
+
+```
+
+6.动态代理
+不编写实现类，直接在运行期创建某个interface的实例呢？
+这是可能的，因为Java标准库提供了一种动态代理（Dynamic Proxy）的机制：可以在运行期动态创建某个interface的实例。
+
+
+---
+
+### 18 Generic type 范型
+ref: [liaoxuefeng java](https://www.liaoxuefeng.com/wiki/1252599548343744/1265102638843296)
+
+1.Use Generic Type(Array as example):
+```java
+public class ArrayList<T> {
+    private T[] array;
+    private int size;
+    public void add(T e) {...}
+    public void remove(int index) {...}
+    public T get(int index) {...}
+}
+
+// 向上转型/implements
+public class ArrayList<T> implements List<T> {
+    ...
+}
+List<String> list = new ArrayList<String>();
+
+// 但是T不能继承U，
+// 比如Integer -> Number 
+// 否则会出现添加Float/Double也能添加的状况
+
+```
+使用泛型时，把泛型参数<T>替换为需要的class类型，例如：ArrayList<String>，ArrayList<Number>等；
+可以省略编译器能自动推断出的类型，例如：List<String> list = new ArrayList<>();；
+不指定泛型参数类型时，编译器会给出警告，且只能将<T>视为Object类型；
+可以在接口中定义泛型类型，实现此接口的类必须实现正确的泛型类型。
+
+2.Write Generic Type
+把特定的类型用T表示，static单独列出。因为static的范型和这个类已经没有关系了。
+```java
+public class Pair<T> {
+    private T first;
+    private T last;
+    public Pair(T first, T last) {
+        this.first = first;
+        this.last = last;
+    }
+    public T getFirst() {
+        return first;
+    }
+    public T getLast() {
+        return last;
+    }
+    // 静态泛型方法应该使用其他类型区分:
+    public static <K> Pair<K> create(K first, K last) {
+        return new Pair<K>(first, last);
+    }
+}
+```
+多个范型
+```java
+public class Pair<T, K> {
+    private T first;
+    private K last;
+    public Pair(T first, K last) {
+        this.first = first;
+        this.last = last;
+    }
+    public T getFirst() { ... }
+    public K getLast() { ... }
+}
+Pair<String, Integer> p = new Pair<>("test", 123);
+```
+范型擦拭法：编译器把所有T视作Object，在用的时候强制转型。
+所以
+i. 不能用基本类型，比如int
+ii. 不能获得范型的class。因为得来的都是<Object>的class 
+iii. 不能用 instanceof
+iv. 不能在范型里new
+```java
+// public class Pair<T> {
+//     private T first;
+//     private T last;
+//     public Pair() {
+//         // Compile error:
+//         first = new T();
+//         last = new T();
+//     }
+// }
+
+public class Pair<T> {
+    private T first;
+    private T last;
+    public Pair(Class<T> clazz) {
+        first = clazz.newInstance();
+        last = clazz.newInstance();
+    }
+}
+Pair<String> pair = new Pair<>(String.class);
+```
+v. Override要注意不能和Object重名
+```java
+// public class Pair<T> {
+//     public boolean equals(T t) {
+//         return this == t;
+//     }
+// }
+public class Pair<T> {
+    public boolean same(T t) {
+        return this == t;
+    }
+}
+```
+
+3.extend generic type class
+```java
+public class IntPair extends Pair<Integer> {
+}
+IntPair ip = new IntPair(1, 2);
+// 前面讲了，我们无法获取Pair<T>的T类型，即给定一个变量Pair<Integer> p，无法从p中获取到Integer类型。
+// 但是，在父类是泛型类型的情况下，编译器就必须把类型T（对IntPair来说，也就是Integer类型）保存到子类的class文件中，不然编译器就不知道IntPair只能存取Integer这种类型。
+// 在继承了泛型类型的情况下，子类可以获取父类的泛型类型. 获取父类的泛型类型代码比较复杂.
+
+```
+
+4.通配符 ? / extends / super
+实现T的子类通用
+```java
+public class Main {
+    public static void main(String[] args) {
+        Pair<Integer> p = new Pair<>(123, 456);
+        int n = add(p);
+        System.out.println(n);
+    }
+
+    static int add(Pair<? extends Number> p) {
+        Number first = p.getFirst();
+        Number last = p.getLast();
+        return first.intValue() + last.intValue();
+    }
+}
+
+class Pair<T> {
+    private T first;
+    private T last;
+    public Pair(T first, T last) {
+        this.first = first;
+        this.last = last;
+    }
+    public T getFirst() {
+        return first;
+    }
+    public T getLast() {
+        return last;
+    }
+}
+```
+只读但是不能用来修改
+```java
+int sumOfList(List<? extends Integer> list) {
+    int sum = 0;
+    for (int i=0; i<list.size(); i++) {
+        Integer n = list.get(i);
+        sum = sum + n;
+    }
+    return sum;
+}
+// 允许调用get()方法获取Integer的引用；
+// 不允许调用set(? extends Integer)方法并传入任何Integer的引用（null除外）
+```
+定义的时候,T extends 可以限制其类型
+```java
+public class Pair<T extends Number> { ... }
+```
+super: 用的时候再看
 
 ---
 
@@ -716,8 +1138,22 @@ cond.signalAll();
 
 
 // 3.Semophora
+```
+
+## e6 lambda function
+
+```java
+ArrayList<Integer> numbers = new ArrayList<Integer>();
+numbers.add(5);
+numbers.add(9);
+numbers.add(8);
+numbers.add(1);
+numbers.forEach( (n) -> { System.out.println(n); } );
+// stream().forEach is undefined. forEach() is defined.
 
 ```
+
+
 
 ### final & static
 

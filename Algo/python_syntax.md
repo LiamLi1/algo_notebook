@@ -1,7 +1,9 @@
 ### Python Syntax
 
 ### 常用函数
-
+```python
+float('-inf') float('inf') # for initializing min max values.
+```
 ### String
 只有string有index
 ```python
@@ -24,6 +26,10 @@ txt.isnumeric("22") # true. 非负整数才行
 string = "BCBA"
 "".join(sorted(string)) # "ABBC"
 
+#字符串处理
+isdigit() # 判断是否是数字字符（0-9）
+ord(char) - ord('0') # unicode code of a specified character
+
 ```
 
 ### 整除/取模
@@ -36,6 +42,14 @@ num1 // num2
 
 取模数要先取整
 MOD = int(1e9 + 7)
+
+Python 在逻辑上将负数视为具有无限个前导 1 的二进制补码。
+正数：高位无限补 0。例如 5 的二进制逻辑表示为 ...00000101。
+负数：高位无限补 1。例如 -5 的二进制逻辑表示为 ...11111011（由正数 5 取反加 1 得到）
+
+位运算优先级不高 要加（）
+
+
 ```
 
 ### List
@@ -142,10 +156,14 @@ class Solution:
             return self.memo[(i, j)]
         self.memo[(i, j)] = min(self.helper(triangle, i + 1, j), self.helper(triangle, i + 1, j + 1)) + triangle[i][j]
         return self.memo[(i, j)]
+
 ```
 collections.defaultlist(list)
 对没有定义key的，直接返回一个空list
+只要调用就算数 比如if(dict1[key] == 0)也算
+
 ```
+
 >>> def zero():
 ...     return 0
 ...
@@ -157,7 +175,13 @@ dict4 = defaultdict(list)
 ```
 
 hash 需要定义__hash__和__eq__
+比较时 定义__lt__(self, other)
+如果要实现==,>,<=, 用@total_ordering
+
 ```
+from functools import total_ordering
+
+@total_ordering
 class MemDev(object):
     def __init__(self, name, age):
         self.name = name
@@ -170,6 +194,9 @@ class MemDev(object):
         if self.name == other.name and self.age == other.age:
             return True
         return False
+    
+    def __lt__(self, other):
+        return self.age < other.age
 ``` 
 
 remove
@@ -258,7 +285,7 @@ heapq.replace(heap, item) # 可能弹出的item比输入的小
 heapq.heapify(x) # 将list x 转换成堆，原地，线性时间内。
 ```
 
-对tuple，自动根据第一个数来排序
+对tuple，从第一开始，一直往下比。
 ```
 >>> h = []
 >>> heappush(h, (5, 'write code'))

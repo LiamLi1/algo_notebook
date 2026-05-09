@@ -1,10 +1,9 @@
 ## Senior Algo Class 1
-- [x] [find-peak-element ii](https://www.lintcode.com/problem/find-peak-element-ii/description) / 贪心或者二分/ 二分解更优(4向递归)
-- [x] [connected-component-in-undirected-graph](https://www.lintcode.com/problem/connected-component-in-undirected-graph/description) 普通dfs/ 也可以用union find
-- [x] [find-the-weak-connected-component-in-the-directed-graph](https://www.lintcode.com/problem/find-the-weak-connected-component-in-the-directed-graph/description) 可以用union find
 
-如果有向图的边变成无向图时，如果是联通的，就叫弱联通块
-如果有向图就是相互联通的，那是强联通快。
+- [xk] [number-of-connected-components-in-an-undirected-graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/description/)
+
+- [k] [redundant-connection-ii](https://leetcode.com/problems/redundant-connection-ii/)
+- [r] union find 也能做 看看dfs怎么做
 
 Union Find:
 ```java
@@ -86,7 +85,7 @@ class UnionFindSet:
 - [x] [connecting-graph-ii](https://www.lintcode.com/problem/connecting-graph-ii/description) 
 - [x] [connecting-graph-iii](https://www.lintcode.com/problem/connecting-graph-iii/description)
 - [x] [bricks-falling-when-hit](https://www.leetcode.com/problems/bricks-falling-when-hit/)
-
+bv
 可以用bfs+路径/dfs，也可以并查集，单开一个dict记录key到parent的factor。
 路径压缩的时候要处理factor
 - [x¿¿] [evaluate-division](https://www.leetcode.com/problems/evaluate-division/) 

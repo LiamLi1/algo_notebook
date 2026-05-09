@@ -1,6 +1,6 @@
 ## Nine Chapter Class 3
 
-#### 二叉树（BST）/ 排序
+#### 二叉树（BST）+ 排序
 
 BST 可以重复。定义上 左 < 父， 右 >= 父
 ### 模板
@@ -94,15 +94,39 @@ Template 4: While Loop (in/post order 比较难, preorder 直接可以写)
                 }
             } else {
                 node = stack.pop();
-                result.add(node.val);
+                result.add(node.val); # post order
                 while (!stack.empty() && stack.peek().right == node) {
                     node = stack.pop();
-                    result.add(node.val);
+                    result.add(node.val); # post order
                 }
             }
         }
         return result;
     }
+
+                 1
+                / \
+                2 3
+                \
+                 4
+                  \
+                   5
+                  /
+                 6
+
+post order: add to result when pop
+    1: stack[1,2]
+    2: stack[1,2,4]
+    stack[1,2,4,5,6]
+    stack[1,2,4,5], result[6]
+    stack[1,], result[6,5,4,2]
+
+in order: add to result when peek
+result: [2,4,6,5,1,3]
+
+pre-order? Stack. Push left, Push right.
+
+
 ```
 [Morris Traversal遍历二叉树 ](https://www.jianshu.com/p/d2059062efac)
 
@@ -155,9 +179,12 @@ private void quickSort(int[] A, int start, int end) {
 
 ### 4. Merge Sort
 - [x] [Sort LinkedList](https://www.lintcode.com/problem/sort-integers-ii/description)
-- [x] [Merge Sort来写数组排序](https://www.lintcode.com/problem/sort-integers-ii/description)
+- [xk] [Merge Sort来写数组排序](https://leetcode.com/problems/sort-an-array/description/)
 ### 5. Heap Sort
-- [x] [Heap Sort写数组排序](https://www.lintcode.com/problem/sort-integers-ii/description)
+- [xk] [Heap Sort写数组排序](https://leetcode.com/problems/sort-an-array/description/)
+- [k] [Quick Sort写数组排序](https://leetcode.com/problems/sort-an-array/description/)
+- [k] [Kth largest element quick sort -> 快排模版](https://leetcode.com/problems/kth-largest-element-in-an-array/description/) 
+
 ### 6. 排序总结
 桶排序：先划分成若干个桶(比如用map，0-9/10-19/.../)， 桶内排序以后再合并。
 稳定的排序: 
@@ -211,42 +238,160 @@ void insertSort(int[] A) {
 	}
 }
 // 折半插入法，用二分来找最后一个插入点。
-
 ```
+
+各路排序算法 O(nlogn)
+```python
+class Heap:
+    def __init__(self, nums):
+        self.heap = nums
+        self.heapify()
+        print("heap:{}".format(self.heap))
+
+    def heapify(self):
+        for i in range(len(self.heap) - 1, -1, -1):
+            self.shiftDown(i)
+        return
+        
+    def shiftDown(self, index):
+        while len(self.heap) > index * 2 + 1:
+            son = index * 2 + 1
+            right_son = index * 2 + 2
+            if right_son < len(self.heap) and self.heap[right_son] < self.heap[son]:
+                son = right_son
+            if self.heap[index] > self.heap[son]:
+                temp = self.heap[son]
+                self.heap[son] = self.heap[index]
+                self.heap[index] = temp
+            index = son
+        # print("heap after shiftDown:{}".format(self.heap))
+        return
+    
+    def pop(self):
+        if self.size() <= 0:
+            return None
+        res = self.heap[0]
+        self.heap[0] = self.heap[-1]
+        self.heap.pop()
+        self.shiftDown(0)
+        return res
+    
+    def size(self):
+        return len(self.heap)
+
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        return self.heapSort(nums)
+    
+    def heapSort(self, nums):
+        h = Heap(nums)
+        res = []
+        while(h.size() > 0):
+            res.append(h.pop())
+        return res 
+    
+    def mergeSort(self, nums, start, end):
+        if end <= start + 1:
+            return nums[start:end]
+        
+        mid = (start + end) // 2
+        left = self.mergeSort(nums, start, mid)
+        right = self.mergeSort(nums, mid, end)
+        res = self.mergeArray(left, right)
+        return res
+        
+        
+    
+    def mergeArray(self, nums1, nums2):
+        res = []
+        p1, p2 = 0, 0
+        while p1 < len(nums1) and p2 < len(nums2):
+            if nums1[p1] <= nums2[p2]:
+                res.append(nums1[p1])
+                p1 += 1
+            else:
+                res.append(nums2[p2])
+                p2 += 1
+        
+        if p1 < len(nums1):
+            res.extend(nums1[p1:])
+        if p2 < len(nums2):
+            res.extend(nums2[p2:])
+        # print(res)
+        return res
+        
+    
+    
+    def quickSort(self, nums: List[int], start: int, end: int):
+        # print("s:{}, e:{}".format(start, end))
+        
+        if not nums or end <= start:
+            return
+        pivot = nums[(start + end) // 2]
+        
+        left = start
+        right = end
+        
+        while left <= right:
+            while left <= right and nums[left] < pivot:
+                left += 1
+            while left <= right and nums[right] > pivot:
+                right -= 1
+            if left <= right:
+                temp = nums[left]
+                nums[left] = nums[right]
+                nums[right] = temp
+                left += 1
+                right -= 1
+        
+        
+        self.quickSort(nums, start, right)
+        self.quickSort(nums, left, end)
+        return
+    
+```         
+
 
 ---
 ### Problems 
 
-- Binary Tree
-- [x] [Binary Tree Preorder Traversal (recursion/ divide & conquer/ no recursion)](https://www.leetcode.com/problems/binary-tree-preorder-traversal/description)
-- [x] :carrot: inorder by loop
-- [x] :carrot: postorder by loop
-- [x] :carrot: Morris inorder
-- [x] [Binary Tree Inorder/Preorder/Postorder Traversal (while loop)](https://www.leetcode.com/problems/binary-tree-inorder-traversal/description)
+- Binary Search Tree
+- [xk] [Binary Tree Preorder Traversal (recursion/ divide & conquer/ no recursion)](https://www.leetcode.com/problems/binary-tree-preorder-traversal/description)
+- [xk] :carrot: inorder by loop
+- [xk] :carrot: postorder by loop
+- [xk] :carrot: Morris inorder
+- [xk] [Binary Tree Inorder/Preorder/Postorder Traversal (while loop)](https://www.leetcode.com/problems/binary-tree-inorder-traversal/description)
 - divide & conquer （两种传值方式。这里主要是子节点传给父节点。而BST的第一题就用了父节点的传给子节点）
-- [x]  [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
-- [x]  [Balanced Binary Tree](https://www.leetcode.com/problems/balanced-binary-tree/)
-- [x] [$$$Binary Tree Maximum Path Sum$$$](https://www.leetcode.com/problems/binary-tree-maximum-path-sum/description) (对非法情况，求最大返回最小，求最小返回最大，求方案数返回0)
-- [x] [*Lowest Common Ancestor (包含parent指针 用List，或者不包含 用分治)](https://www.leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/)
+- [xk]  [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+- [xk]  [Balanced Binary Tree](https://www.leetcode.com/problems/balanced-binary-tree/)
+- [xk] [$$$Binary Tree Maximum Path Sum$$$](https://www.leetcode.com/problems/binary-tree-maximum-path-sum/description) (对非法情况，求最大返回最小，求最小返回最大，求方案数返回0)
+- [xk] [*Lowest Common Ancestor (包含parent指针 用List，或者不包含 用分治)](https://www.leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/)
 ```
-高级分治：可以直接递归来简化。如果左边/右边有一边是lca就直接传上来。如果两边都是lca就返回root。如果root是p或者q就返回root。否则返回None。
+返回值可以进一步简化：如果左边/右边有一边是lca就直接传上来。如果两边都是lca就返回root。如果root是p或者q就返回root。否则返回None。
 ```
-- [ ] [closest-binary-search-tree-value-ii/](https://leetcode.com/problems/closest-binary-search-tree-value-ii/)
+- [k] [closest-binary-search-tree-value-ii/](https://leetcode.com/problems/closest-binary-search-tree-value-ii/)
 ```
 搞懂为什么用stack可以遍历BST。实质上是吧前驱全部存进stack。
 如果只是inorder traversal，可以不用peek，只pop。每次pop以后继续维护栈。
+
+i. BST的特性 越深的节点 越接近target。 
+推理：inorder traversl是桉顺序排列。all left son < node. all right son > node.
+ii. 问题本质是：怎样从BST的一个点开始 traversal predecessor 和 successor
+对predecessor：先往右，然后找到最左
+对于successor：先往左，然后找到最右
+
 ```
 
 
 ### BFS
 - [x] [Binary Tree Level Order Traversal](http://www.leetcode.com/problems/binary-tree-level-order-traversal/)
 - Binary Search Tree
-- [x] [Validate Binary Search Tree](http://www.leetcode.com/problems/validate-binary-search-tree/) 
+- [xk] [Validate Binary Search Tree](http://www.leetcode.com/problems/validate-binary-search-tree/) 
 ```
 两种思路，分别对应前序/后序遍历。前序把父节点参数传给子节点。后序把子节点结果传回父节点。
 这用前序遍历的思路，把父节点的参数传给子节点再来分治，写起来更简洁，可以当作另一种思路的模板。用divideConquer也可以做。类似LCA。
 ```
-- [ ] :carrot: 还有一个性质是，后序遍历时得到最小值排序。 
+- [k] :carrot: 还有一个性质是，后序遍历时得到最小值排序。 
 
 ```java
 public class Solution {
@@ -271,7 +416,7 @@ public class Solution {
     }
 }
 ```
-- [x] [Insert Node in a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/)
+- [xk] [Insert Node in a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/)
 前序 + 返回root以改变bst的结构
 ```python
 class Solution:
@@ -287,9 +432,9 @@ class Solution:
         return root
 ```
 
-- [x] [Search Range in a Binary Search Tree](http://www.lintcode.com/problem/search-range-in-binary-search-tree/)
-- [xx] :memo: [$$$Remove Node in Binary Search Tree$$$](http://www.lintcode.com/problem/remove-node-in-binary-search-tree/)第一道hard难度的题。和 Insert 一样，通过分治返回TreeNode的方式来改变BST的结构。  而且也是前序的思路完成的分治。
-- [xx] [*Binary Search Tree Iterator](https://www.leetcode.com/problems/binary-search-tree-iterator/description) 
+- [k] [Search Range in a Binary Search Tree]https://leetcode.com/problems/range-sum-of-bst/
+- [xxk] :memo: [$$$Remove Node in Binary Search Tree$$$](https://leetcode.com/problems/delete-node-in-a-bst/description/)第一道hard难度的题。和 Insert 一样，通过分治返回TreeNode的方式来改变BST的结构。  而且也是前序的思路完成的分治。
+- [xxk] [*Binary Search Tree Iterator](https://www.leetcode.com/problems/binary-search-tree-iterator/description) 
 
 
 ---

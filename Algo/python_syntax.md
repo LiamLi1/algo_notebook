@@ -1,5 +1,15 @@
 ### Python Syntax
 
+### python 语法糖
+
+函数声明 + tuple + 返回值同时定义两个值
+```
+def get_user() -> tuple[str, int]:
+    return "Alice", 30
+
+name, age = get_user()
+```
+
 ### 常用函数
 ```python
 float('-inf') float('inf') # for initializing min max values.

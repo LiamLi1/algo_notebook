@@ -3,7 +3,16 @@
 - [xk] [number-of-connected-components-in-an-undirected-graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/description/)
 
 - [k] [redundant-connection-ii](https://leetcode.com/problems/redundant-connection-ii/)
-- [r] union find 也能做 看看dfs怎么做
+暴力union find可以做
+O(N)的办法是：分情况讨论 环或者定点有两个parent。
+```
+如果有两个parent，得到candidate1/candidate2
+case1 移除candidate2且union find找下来没有环，那么返回two parent顶点的第二条边
+如果union find找下来有环：
+	case 2 返回candidate1
+	case 3 返回最后成环的那一条边。	
+图解 https://leetcode.com/problems/redundant-connection-ii/solutions/108058/one-pass-disjoint-set-solution-with-expl-45lf/
+```
 
 Union Find:
 ```java
@@ -80,10 +89,7 @@ class UnionFindSet:
         return self.size[self.find(x)]
 ```
 ---
-二刷：
-如何统计unionfind以后，同一parent下点的数量：
-- [x] [connecting-graph-ii](https://www.lintcode.com/problem/connecting-graph-ii/description) 
-- [x] [connecting-graph-iii](https://www.lintcode.com/problem/connecting-graph-iii/description)
+
 - [x] [bricks-falling-when-hit](https://www.leetcode.com/problems/bricks-falling-when-hit/)
 bv
 可以用bfs+路径/dfs，也可以并查集，单开一个dict记录key到parent的factor。
@@ -91,6 +97,3 @@ bv
 - [x¿¿] [evaluate-division](https://www.leetcode.com/problems/evaluate-division/) 
 
 - [x] [possible-bipartition/](https://leetcode.com/problems/possible-bipartition/)
-```
-用union find的时候，如果两个点的find一样则两个点在统一个group里面。
-```

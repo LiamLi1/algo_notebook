@@ -296,7 +296,5 @@ bfs:
 状态压缩 + bfs求最短路径 + /path记录/
 
 ##### 8. 图里找环（树是无环图）
-- [ ] [redundant-connection/](https://leetcode.com/problems/redundant-connection/description/)
-
 - [ ] [redundant-connection/](https://leetcode.com/problems/redundant-connection/)
-内部找退出条件 不如放一个global变量来存
+内部找退出条件 不如放一个global变量来存 
